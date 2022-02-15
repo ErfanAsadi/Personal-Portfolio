@@ -6,7 +6,7 @@
     "build": "yarn test && next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s public/ -p 6006",
     "build-storybook": "build-storybook",
     "translate": "i18next --fail-on-warnings -c configs/i18next-parser.config.js ",
     "analyze": "cross-env ANALYZE=true yarn build",
