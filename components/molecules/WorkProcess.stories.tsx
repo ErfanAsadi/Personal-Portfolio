@@ -2,25 +2,29 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import AngrySvg from "assets/icons/angry.svg";
 
-import { WorkProcessCard } from "./WorkProcessCard";
+import { WorkProcess } from "./WorkProcess";
 
 export default {
-  title: "Atoms/WorkProcessCard",
-  component: WorkProcessCard,
+  title: "Molecules/WorkProcess",
+  component: WorkProcess,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof WorkProcessCard>;
+} as ComponentMeta<typeof WorkProcess>;
 
-const Template: ComponentStory<typeof WorkProcessCard> = (args) => (
-  <WorkProcessCard {...args} />
+const Template: ComponentStory<typeof WorkProcess> = (args) => (
+  <WorkProcess {...args} />
 );
 
 export const Primary = Template.bind({});
 
-Primary.args = {
+const workProcessCard = {
   icon: <AngrySvg width={35} height={35} />,
   title: "Discover",
+};
+Primary.args = {
+  items: new Array(5).fill(workProcessCard),
+  lineWidth: 40,
 };
 
 Primary.parameters = {

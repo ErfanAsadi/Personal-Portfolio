@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { FC, ReactElement } from "react";
 
-interface WorkProcessCardProps {
+export interface WorkProcessCardProps {
   icon: ReactElement;
   title: string;
   className?: string;
