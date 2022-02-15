@@ -39,6 +39,23 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  backgrounds: {
+    default: 'Gray',
+    values: [
+      {
+        name: 'Gray',
+        value: '#dddddd',
+      },
+      {
+        name: 'White',
+        value: '#eeeeee',
+      },
+      {
+        name: 'Black',
+        value: '#000000',
+      },
+    ],
+  },
 };
 
 export const ThemeProvider: FC<any> = ({ theme, children }) => {

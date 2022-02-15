@@ -48,7 +48,7 @@ const InnerContainer = styled.div`
   text-align: center;
   width: 300px;
   height: 200px;
-  background-color: #dddddd;
+  background-color: white;
   border-radius: 8px;
   top: 50%;
   left: 50%;
