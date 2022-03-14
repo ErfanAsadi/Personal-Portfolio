@@ -28,7 +28,11 @@ const Container = styled.div`
 const IconContainer = styled.div`
   height: 40px;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 15px;
+  & > svg {
+    height: 30px;
+    width: 30px;
+  }
 `;
 
 const Title = styled.div`

@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof WorkProcessCard> = (args) => (
 export const Primary = Template.bind({});
 
 Primary.args = {
-  icon: <AngrySvg width={35} height={35} />,
+  icon: <AngrySvg />,
   title: "Discover",
 };
 

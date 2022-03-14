@@ -7,6 +7,7 @@ import {
   useGetDeploymentInfo,
 } from "$utils/queries/rest/getDeploymentInfo.rest";
 import { Button } from "@mui/material";
+import { Button as Button2 } from "$components/Button";
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
 import { Fragment } from "react";
@@ -37,6 +38,7 @@ const SamplePage: NextPage<AppPage> = (props) => {
     <SampleLayout
       desktopView={
         <Fragment>
+          <Button2 title="click me" href="/about" />
           <Sample />
           <hr />
           <p>{"Desktop"}</p>

@@ -12,6 +12,8 @@ import {
 } from "@mui/material/styles";
 import { ITheme } from "../styles/theme/ITheme.js";
 import * as NextImage from "next/image";
+import { backgrounds } from "./previewData";
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 
 const OriginalNextImage = NextImage.default;
 
@@ -39,23 +41,10 @@ export const parameters = {
       date: /Date$/,
     },
   },
-  backgrounds: {
-    default: 'Gray',
-    values: [
-      {
-        name: 'Gray',
-        value: '#dddddd',
-      },
-      {
-        name: 'White',
-        value: '#eeeeee',
-      },
-      {
-        name: 'Black',
-        value: '#000000',
-      },
-    ],
-  },
+  backgrounds,
+  viewport:{
+    viewports: INITIAL_VIEWPORTS,
+  }
 };
 
 export const ThemeProvider: FC<any> = ({ theme, children }) => {

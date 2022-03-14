@@ -18,7 +18,7 @@ export const WorkProcess: FC<WorkProcessProps> = (props) => {
     <Container className={className}>
       {items.map(({ title, icon }, index) => (
         <>
-          <WorkProcessCard
+          <StyledWorkProcessCard
             key={`WorkProcessCard_${index}`}
             title={title}
             icon={icon}
@@ -33,10 +33,15 @@ export const WorkProcess: FC<WorkProcessProps> = (props) => {
 const Container = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
 `;
 
 const Line = styled.div<Pick<WorkProcessProps, "lineWidth">>`
-  height: 3px;
   width: ${({ lineWidth }) => `${lineWidth}px`};
-  background-color: white;
+  border-top: 3px dashed white;
+`;
+
+const StyledWorkProcessCard = styled(WorkProcessCard)`
+  margin-bottom: 10px;
 `;

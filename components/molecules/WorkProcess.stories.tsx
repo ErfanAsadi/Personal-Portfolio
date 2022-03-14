@@ -19,12 +19,12 @@ const Template: ComponentStory<typeof WorkProcess> = (args) => (
 export const Primary = Template.bind({});
 
 const workProcessCard = {
-  icon: <AngrySvg width={35} height={35} />,
+  icon: <AngrySvg />,
   title: "Discover",
 };
 Primary.args = {
   items: new Array(5).fill(workProcessCard),
-  lineWidth: 40,
+  lineWidth: 25,
 };
 
 Primary.parameters = {
