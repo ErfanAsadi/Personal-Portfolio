@@ -18,7 +18,14 @@ export const Sidebar: FC<WorkProcessProps> = (props) => {
   return (
     <Container className={className}>
       <ImageContainer>
-        <StyledImage src={avatar} alt="" placeholder="blur" />
+        <Image
+          src={avatar}
+          alt=""
+          placeholder="blur"
+          width="100%"
+          height="100%"
+          layout="responsive"
+        />
       </ImageContainer>
       {buttons.map((button, index) => (
         <LayoutButton key={index} {...button} />
@@ -36,10 +43,4 @@ const Container = styled.div`
 const ImageContainer = styled.div`
   height: 180px;
   width: 100%;
-`;
-
-const StyledImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 `;
