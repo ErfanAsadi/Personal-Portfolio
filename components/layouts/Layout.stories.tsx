@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import AngrySvg from "assets/icons/angry.svg";
 import { Layout } from "./Layout";
 import styled from "@emotion/styled";
-import { useTranslation } from "react-i18next";
 
 export default {
   title: "Layout / Layout",
