@@ -22,6 +22,7 @@ const Template: ComponentStory<typeof Sidebar> = (args) => (
 export const Primary = Template.bind({});
 
 Primary.args = {
+  title: "Erfan Asadi",
   avatar: "/avatar.jpg",
   buttons: [
     { icon: <AngrySvg />, title: "HOME" },
@@ -39,5 +40,5 @@ Primary.parameters = {
 
 const Container = styled.div`
   height: 100vh;
-  width: 180px;
+  width: 140px;
 `;

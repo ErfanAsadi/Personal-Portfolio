@@ -55,12 +55,15 @@ interface ComponentProps {
 }
 
 const Container = styled.div`
-  width: calc(100% - 40px);
-  height: 50px;
-  padding: 20px;
-  border-bottom: 1px solid #7e6b6e;
+  width: 100%;
+  height: 90px;
+  border-bottom: 1px solid #3e4b5e;
   background-color: #1e282e;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   &:hover {
     & > div {
@@ -88,6 +91,6 @@ const IconWrapper = styled.div<ComponentProps>`
 const Title = styled.div<ComponentProps>`
   width: 100%;
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
   color: ${({ $active }) => ($active ? "#ffffff" : "#ccc")};
 `;

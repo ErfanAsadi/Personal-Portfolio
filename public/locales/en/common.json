@@ -1,8 +1,11 @@
 {
-  "Powered by ": "Powered by ",
-  "coming-soon": "Coming Soon",
-  "change-locale": "Change locale",
-  "to-second-page": "To second page",
-  "throw-error": "Throw error",
+  "home": "Home",
+  "about-me": "About Me",
+  "resume": "Resume",
+  "portfolio": "Portfolio",
+  "blog": "Blog",
+  "contact": "Contact",
+  "powered-by": "Powered By",
+  "star-shine": "The Star is going to Shine!",
   "go-back": "Go back"
 }

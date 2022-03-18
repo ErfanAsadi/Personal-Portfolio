@@ -7,6 +7,7 @@ module.exports = {
   ],
   addons: [
     "@storybook/addon-links",
+    "storybook-addon-next-router",
     "@storybook/addon-essentials",
     "storybook-react-i18next",
     "themeprovider-storybook/register",
