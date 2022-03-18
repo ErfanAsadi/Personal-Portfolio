@@ -55,12 +55,15 @@ interface ComponentProps {
 }
 
 const Container = styled.div`
-  width: calc(100% - 40px);
-  height: 50px;
-  padding: 20px;
+  width: 100%;
+  height: 90px;
   border-bottom: 1px solid #7e6b6e;
   background-color: #1e282e;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
   &:hover {
     & > div {

@@ -9,11 +9,12 @@ import { useMedia } from "$utils/hooks/useMedia";
 import { Navbar } from "./Navbar";
 
 export interface LayoutProps {
+  title: string;
   className?: string;
 }
 
 export const Layout: FC<LayoutProps> = (props) => {
-  const { className, children } = props;
+  const { title, className, children } = props;
 
   /** Libs */
   const { t } = useTranslation(["common"]);
@@ -28,7 +29,6 @@ export const Layout: FC<LayoutProps> = (props) => {
   const [openSideNav, setOpenSideNav] = useState(false);
   const isSideNavOpen = openSideNav || !isBelowLargeDevices;
 
-  const title = "Erfan Asadi";
   const sideBarProps = {
     title,
     avatar: "/avatar.jpg",

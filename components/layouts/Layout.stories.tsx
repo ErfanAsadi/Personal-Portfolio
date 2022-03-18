@@ -13,7 +13,7 @@ export default {
 } as ComponentMeta<typeof Layout>;
 
 const Template: ComponentStory<typeof Layout> = (args) => (
-  <Layout>
+  <Layout {...args}>
     <Cmp>Section 1</Cmp>
     <Cmp>Section 2</Cmp>
     <Cmp>Section 3</Cmp>
@@ -22,7 +22,9 @@ const Template: ComponentStory<typeof Layout> = (args) => (
 
 export const Primary = Template.bind({});
 
-Primary.args = {};
+Primary.args = {
+  title: "Erfan Asadi",
+};
 
 Primary.parameters = {
   layout: "fullscreen",
