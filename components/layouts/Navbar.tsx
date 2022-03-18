@@ -56,7 +56,7 @@ const Container = styled.div<{ $visible?: boolean }>`
   background-color: #1e282e;
   text-align: center;
   transition: top 0.3s;
-  top: ${({ $visible }) => ($visible ? 0 : `- ${navbarHeight}`)};
+  top: ${({ $visible }) => ($visible ? 0 : `-${navbarHeight}`)};
   color: white;
 `;
 

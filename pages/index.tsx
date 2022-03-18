@@ -4,12 +4,26 @@ import { AppPage, PageName } from "$utils/sharedTypes/IApp";
 import Layout from "$components/layouts/Layout";
 import styled from "@emotion/styled";
 import { useTranslation } from "react-i18next";
+import AngrySvg from "assets/icons/angry.svg";
 
 const Home: NextPage<AppPage> = (props) => {
   const { t } = useTranslation();
+  const title = "Erfan Asadi";
+  const sideBarProps = {
+    title,
+    avatar: "/avatar.jpg",
+    buttons: [
+      { icon: <AngrySvg />, title: t("home") },
+      { icon: <AngrySvg />, title: t("about-me") },
+      { icon: <AngrySvg />, title: t("resume") },
+      { icon: <AngrySvg />, title: t("portfolio") },
+      { icon: <AngrySvg />, title: t("blog") },
+      { icon: <AngrySvg />, title: t("contact") },
+    ],
+  };
 
   return (
-    <Layout title="Erfan Asadi">
+    <Layout title={title} sidebar={sideBarProps}>
       <Message>{t("star-shine")}</Message>
     </Layout>
   );

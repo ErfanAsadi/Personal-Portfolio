@@ -1,8 +1,6 @@
-import { Sidebar } from "$components/molecules/Sidebar";
+import { Sidebar, SidebarProps } from "$components/molecules/Sidebar";
 import styled from "@emotion/styled";
 import { FC, useState } from "react";
-import { useTranslation } from "react-i18next";
-import AngrySvg from "assets/icons/angry.svg";
 import { useDirection } from "$utils/hooks/useDirection";
 import { below } from "styles/viewPorts";
 import { useMedia } from "$utils/hooks/useMedia";
@@ -10,14 +8,15 @@ import { Navbar } from "./Navbar";
 
 export interface LayoutProps {
   title: string;
+  sidebar: SidebarProps;
   className?: string;
 }
 
 export const Layout: FC<LayoutProps> = (props) => {
-  const { title, className, children } = props;
+  const { title, sidebar, className, children } = props;
 
-  /** Libs */
-  const { t } = useTranslation(["common"]);
+  console.log("props: ", props);
+  console.log("sidebar: ", sidebar);
 
   /** Custom Hooks */
   const isBelowLargeDevices = useMedia(below.Large);
@@ -29,23 +28,10 @@ export const Layout: FC<LayoutProps> = (props) => {
   const [openSideNav, setOpenSideNav] = useState(false);
   const isSideNavOpen = openSideNav || !isBelowLargeDevices;
 
-  const sideBarProps = {
-    title,
-    avatar: "/avatar.jpg",
-    buttons: [
-      { icon: <AngrySvg />, title: t("home") },
-      { icon: <AngrySvg />, title: t("about-me") },
-      { icon: <AngrySvg />, title: t("resume") },
-      { icon: <AngrySvg />, title: t("portfolio") },
-      { icon: <AngrySvg />, title: t("blog") },
-      { icon: <AngrySvg />, title: t("contact") },
-    ],
-  };
-
   return (
     <Container className={className}>
       <SideNav $isOpen={isSideNavOpen} $isRtl={isRtl}>
-        <Sidebar {...sideBarProps} />
+        <Sidebar {...sidebar} />
       </SideNav>
       <Content $isOpen={isSideNavOpen} $isRtl={isRtl}>
         {isBelowLargeDevices && (

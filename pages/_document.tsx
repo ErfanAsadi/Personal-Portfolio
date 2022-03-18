@@ -6,7 +6,7 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import { createEmotionCache } from "$lib/createEmotionCache";
 import createEmotionServer from "@emotion/server/create-instance";
 import { languageDirections } from "$utils/hooks/localeDirections";
-import { mediaStyles } from "styles/theme/Media";
+import { mediaStyles } from "styles/Media";
 
 export default class MyDocument extends Document {
   render = () => (

@@ -8,14 +8,14 @@ import Image from "next/image";
 import { FC } from "react";
 import { below } from "styles/viewPorts";
 
-interface WorkProcessProps {
+export interface SidebarProps {
   title: string;
   avatar: string;
   buttons: LayoutButtonProps[];
   className?: string;
 }
 
-export const Sidebar: FC<WorkProcessProps> = (props) => {
+export const Sidebar: FC<SidebarProps> = (props) => {
   const { title, avatar, buttons, className } = props;
 
   /** Custom Hooks */
@@ -48,8 +48,8 @@ const Container = styled.div`
 
 const Title = styled.div`
   width: 100%;
-  height: 50px;
-  line-height: 50px;
+  height: 40px;
+  line-height: 40px;
   font-size: 18px;
   text-align: center;
   color: white;

@@ -57,7 +57,7 @@ interface ComponentProps {
 const Container = styled.div`
   width: 100%;
   height: 90px;
-  border-bottom: 1px solid #7e6b6e;
+  border-bottom: 1px solid #3e4b5e;
   background-color: #1e282e;
   cursor: pointer;
   display: flex;

@@ -15,7 +15,7 @@ import styled from "@emotion/styled";
 import { QueryClientProvider, Hydrate } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { initializeReactQuery } from "$lib/initializeReactQuery";
-import { MediaContextProvider } from "styles/theme/Media";
+import { MediaContextProvider } from "styles/Media";
 
 const clientSideEmotionCache = createEmotionCache();
 
