@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { debounce } from "lodash-es";
-import React, { useState, useEffect, FC } from "react";
+import React, { useState, useEffect, FC, useCallback } from "react";
 import AngrySvg from "assets/icons/angry.svg";
 
 interface NavbarProps {
@@ -17,17 +17,21 @@ export const Navbar: FC<NavbarProps> = (props) => {
   const [visible, setVisible] = useState(true);
 
   /** Handler Functions */
-  const handleScroll = debounce(() => {
-    const currentScrollPos = window.pageYOffset;
+  const handleScroll = useCallback(
+    () =>
+      debounce(() => {
+        const currentScrollPos = window.pageYOffset;
 
-    setVisible(
-      (prevScrollPos > currentScrollPos &&
-        prevScrollPos - currentScrollPos > 70) ||
-        currentScrollPos < 10
-    );
+        setVisible(
+          (prevScrollPos > currentScrollPos &&
+            prevScrollPos - currentScrollPos > 70) ||
+            currentScrollPos < 10
+        );
 
-    setPrevScrollPos(currentScrollPos);
-  }, 100);
+        setPrevScrollPos(currentScrollPos);
+      }, 100),
+    []
+  );
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
