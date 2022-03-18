@@ -45,23 +45,25 @@ export const Navbar: FC<NavbarProps> = (props) => {
   );
 };
 
+const navbarHeight = "60px";
+
 const Container = styled.div<{ $visible?: boolean }>`
   position: fixed;
   display: flex;
   align-items: center;
-  height: 80px;
+  height: ${navbarHeight};
   width: 100%;
   background-color: #1e282e;
   text-align: center;
   transition: top 0.3s;
-  top: ${({ $visible }) => ($visible ? 0 : "-80px")};
+  top: ${({ $visible }) => ($visible ? 0 : `- ${navbarHeight}`)};
   color: white;
 `;
 
 const IconContainer = styled.div`
   height: 40px;
   width: 40px;
-  padding: 20px;
+  padding: 10px;
   border-right: 1px solid #666;
   cursor: pointer;
 

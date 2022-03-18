@@ -28,7 +28,9 @@ export const Layout: FC<LayoutProps> = (props) => {
   const [openSideNav, setOpenSideNav] = useState(false);
   const isSideNavOpen = openSideNav || !isBelowLargeDevices;
 
+  const title = "Erfan Asadi";
   const sideBarProps = {
+    title,
     avatar: "/avatar.jpg",
     buttons: [
       { icon: <AngrySvg />, title: t("home") },
@@ -48,7 +50,7 @@ export const Layout: FC<LayoutProps> = (props) => {
       <Content $isOpen={isSideNavOpen} $isRtl={isRtl}>
         {isBelowLargeDevices && (
           <Navbar
-            title={"Erfan Asadi"}
+            title={title}
             onMenuClick={() => setOpenSideNav((prev) => !prev)}
           />
         )}
@@ -63,6 +65,8 @@ interface ComponentProps {
   $isRtl?: boolean;
 }
 
+const sidebarWidth = "140px";
+
 const Container = styled.div<ComponentProps>`
   width: 100%;
   height: 100%;
@@ -71,7 +75,7 @@ const Container = styled.div<ComponentProps>`
 const SideNav = styled.div<ComponentProps>`
   position: fixed;
   height: 100%;
-  width: 200px;
+  width: ${sidebarWidth};
   z-index: 1;
   top: 0;
   overflow-x: hidden;
@@ -81,27 +85,28 @@ const SideNav = styled.div<ComponentProps>`
 
   transform: ${({ $isOpen, $isRtl }) => {
     if ($isRtl) {
-      return $isOpen ? "translateX(0)" : "translateX(200px)";
+      return $isOpen ? "translateX(0)" : `translateX(${sidebarWidth})`;
     } else {
-      return $isOpen ? "translateX(0px)" : "translateX(-200px)";
+      return $isOpen ? "translateX(0px)" : `translateX(-${sidebarWidth})`;
     }
   }};
 `;
 
 const Content = styled.div<ComponentProps>`
-  width: ${({ $isOpen }) => ($isOpen ? "calc(100% - 200px)" : "100%")};
+  width: ${({ $isOpen }) =>
+    $isOpen ? `calc(100% - ${sidebarWidth})` : "100%"};
   height: 100%;
   margin-left: ${({ $isOpen, $isRtl }) =>
-    $isOpen && !$isRtl ? "200px" : "unset"};
+    $isOpen && !$isRtl ? sidebarWidth : "unset"};
 
   margin-right: ${({ $isOpen, $isRtl }) =>
-    $isOpen && $isRtl ? "200px" : "unset"};
+    $isOpen && $isRtl ? sidebarWidth : "unset"};
   transition: 0.5s;
 `;
 
 const Children = styled.div`
   @media ${below.Large} {
-    background-color: red;
+    margin-top: 60px;
   }
 `;
 

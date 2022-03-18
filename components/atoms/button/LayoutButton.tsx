@@ -88,6 +88,6 @@ const IconWrapper = styled.div<ComponentProps>`
 const Title = styled.div<ComponentProps>`
   width: 100%;
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
   color: ${({ $active }) => ($active ? "#ffffff" : "#ccc")};
 `;

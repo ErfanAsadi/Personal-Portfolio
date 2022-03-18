@@ -1,8 +1,8 @@
 import { i18n } from "./i18next.js";
 import * as configConstant from "../configs/constants.config";
-import { FC, useCallback, useEffect, useMemo } from "react";
+import { FC, useCallback, useMemo } from "react";
 import { languageDirections } from "../utils/hooks/localeDirections";
-import { RecoilRoot, useSetRecoilState } from "recoil";
+import { RouterContext } from "next/dist/shared/lib/router-context";
 import { withThemesProvider, DEFAULT_SETTINGS } from "themeprovider-storybook";
 import { lightTheme } from "../styles/theme/lightTheme";
 import { darkTheme } from "../styles/theme/darkTheme";
@@ -13,7 +13,7 @@ import {
 import { ITheme } from "../styles/theme/ITheme.js";
 import * as NextImage from "next/image";
 import { backgrounds } from "./previewData";
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
 const OriginalNextImage = NextImage.default;
 
@@ -35,6 +35,9 @@ export const parameters = {
   locale: i18nConstants.defaultLocale,
   locales: i18nConstants.localeNames,
   actions: { argTypesRegex: "^on[A-Z].*" },
+  nextRouter: {
+    Provider: RouterContext.Provider,
+  },
   controls: {
     matchers: {
       color: /(background|color)$/i,
@@ -42,9 +45,9 @@ export const parameters = {
     },
   },
   backgrounds,
-  viewport:{
+  viewport: {
     viewports: INITIAL_VIEWPORTS,
-  }
+  },
 };
 
 export const ThemeProvider: FC<any> = ({ theme, children }) => {

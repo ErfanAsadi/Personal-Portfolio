@@ -1,5 +1,11 @@
 {
-  "Powered by ": "برگرفته از ",
+  "home": "خانه",
+  "about-me": "درباره من",
+  "resume": "رزومه",
+  "portfolio": "پورتفلیو",
+  "blog": "بلاگ",
+  "contact": "ارتباط با من",
+  "powered-by": "ارائه شده توسط",
   "coming-soon": "بزودی...",
   "change-locale": "تغییر زبان",
   "to-second-page": "برو به صفحه دوم",
