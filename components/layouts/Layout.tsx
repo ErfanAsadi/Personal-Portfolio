@@ -15,9 +15,6 @@ export interface LayoutProps {
 export const Layout: FC<LayoutProps> = (props) => {
   const { title, sidebar, className, children } = props;
 
-  console.log("props: ", props);
-  console.log("sidebar: ", sidebar);
-
   /** Custom Hooks */
   const isBelowLargeDevices = useMedia(below.Large);
 
