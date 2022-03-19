@@ -82,8 +82,6 @@ const IconWrapper = styled.div<ComponentProps>`
   text-align: center;
 
   & > svg {
-    width: 100%;
-    height: 100%;
     fill: ${({ $active }) => ($active ? "#ffffff" : "#ccc")};
   }
 `;

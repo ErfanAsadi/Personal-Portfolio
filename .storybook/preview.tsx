@@ -14,6 +14,7 @@ import { ITheme } from "../styles/theme/ITheme.js";
 import * as NextImage from "next/image";
 import { backgrounds } from "./previewData";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import "../styles/globals.css";
 
 const OriginalNextImage = NextImage.default;
 

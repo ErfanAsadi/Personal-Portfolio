@@ -29,10 +29,6 @@ const IconContainer = styled.div`
   height: 40px;
   text-align: center;
   padding-top: 15px;
-  & > svg {
-    height: 30px;
-    width: 30px;
-  }
 `;
 
 const Title = styled.div`
