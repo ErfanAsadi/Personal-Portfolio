@@ -5,7 +5,7 @@ import AngrySvg from "assets/icons/angry.svg";
 import { WorkProcessCard } from "./WorkProcessCard";
 
 export default {
-  title: "Atoms/WorkProcessCard",
+  title: "Atoms / Cards / WorkProcessCard",
   component: WorkProcessCard,
   argTypes: {
     backgroundColor: { control: "color" },

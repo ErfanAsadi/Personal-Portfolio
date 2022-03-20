@@ -1,7 +1,7 @@
 import {
   LayoutButton,
   LayoutButtonProps,
-} from "$components/atoms/button/LayoutButton";
+} from "$components/atoms/buttons/LayoutButton";
 import { useMedia } from "$utils/hooks/useMedia";
 import styled from "@emotion/styled";
 import Image from "next/image";

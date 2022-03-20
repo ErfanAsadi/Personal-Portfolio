@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { CommentCard } from "./CommentCard";
 
 export default {
-  title: "Atoms/CommentCard",
+  title: "Atoms / Cards / CommentCard",
   component: CommentCard,
   argTypes: {
     backgroundColor: { control: "color" },

@@ -1,7 +1,7 @@
 import {
   WorkProcessCard,
   WorkProcessCardProps,
-} from "$components/atoms/WorkProcessCard";
+} from "$components/atoms/cards/WorkProcessCard";
 import styled from "@emotion/styled";
 import { FC } from "react";
 
