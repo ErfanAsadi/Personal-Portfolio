@@ -25,13 +25,14 @@ export const Primary = Template.bind({});
 const sideBarProps = {
   title: "Erfan Asadi",
   avatar: "/avatar.jpg",
+  activeButtonId: "home",
   buttons: [
-    { icon: <AngrySvg />, title: "home" },
-    { icon: <AngrySvg />, title: "about-me" },
-    { icon: <AngrySvg />, title: "resume" },
-    { icon: <AngrySvg />, title: "portfolio" },
-    { icon: <AngrySvg />, title: "blog" },
-    { icon: <AngrySvg />, title: "contact" },
+    { id: "1", icon: <AngrySvg />, title: "home" },
+    { id: "1", icon: <AngrySvg />, title: "about-me" },
+    { id: "1", icon: <AngrySvg />, title: "resume" },
+    { id: "1", icon: <AngrySvg />, title: "portfolio" },
+    { id: "1", icon: <AngrySvg />, title: "blog" },
+    { id: "1", icon: <AngrySvg />, title: "contact" },
   ],
 };
 

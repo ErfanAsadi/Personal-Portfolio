@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import AngrySvg from "assets/icons/angry.svg";
 import { LayoutButton } from "./LayoutButton";
@@ -13,11 +13,19 @@ export default {
   },
 } as ComponentMeta<typeof LayoutButton>;
 
-const Template: ComponentStory<typeof LayoutButton> = (args) => (
-  <Container>
-    <LayoutButton {...args} />
-  </Container>
-);
+const Template: ComponentStory<typeof LayoutButton> = (args) => {
+  const [active, setActive] = useState(false);
+
+  return (
+    <Container>
+      <LayoutButton
+        {...args}
+        active={active}
+        onClick={() => setActive((prev) => !prev)}
+      />
+    </Container>
+  );
+};
 
 export const Primary = Template.bind({});
 

@@ -12,13 +12,14 @@ const Home: NextPage<AppPage> = (props) => {
   const sideBarProps = {
     title,
     avatar: "/avatar.jpg",
+    activeButtonId: "home",
     buttons: [
-      { icon: <AngrySvg />, title: t("home") },
-      { icon: <AngrySvg />, title: t("about-me") },
-      { icon: <AngrySvg />, title: t("resume") },
-      { icon: <AngrySvg />, title: t("portfolio") },
-      { icon: <AngrySvg />, title: t("blog") },
-      { icon: <AngrySvg />, title: t("contact") },
+      { id: "1", icon: <AngrySvg />, title: t("home") },
+      { id: "1", icon: <AngrySvg />, title: t("about-me") },
+      { id: "1", icon: <AngrySvg />, title: t("resume") },
+      { id: "1", icon: <AngrySvg />, title: t("portfolio") },
+      { id: "1", icon: <AngrySvg />, title: t("blog") },
+      { id: "1", icon: <AngrySvg />, title: t("contact") },
     ],
   };
 

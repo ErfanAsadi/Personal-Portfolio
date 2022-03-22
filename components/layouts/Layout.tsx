@@ -5,10 +5,11 @@ import { useDirection } from "$utils/hooks/useDirection";
 import { below } from "styles/viewPorts";
 import { useMedia } from "$utils/hooks/useMedia";
 import { Navbar } from "./Navbar";
+import { hideScrollBar } from "./hideScrollBar";
 
 export interface LayoutProps {
   title: string;
-  sidebar: SidebarProps;
+  sidebar: Exclude<SidebarProps, "className">;
   className?: string;
 }
 
@@ -65,6 +66,7 @@ const SideNav = styled.div<ComponentProps>`
   transition: 0.5s;
   left: ${({ $isRtl }) => (!$isRtl ? 0 : "unset")};
   right: ${({ $isRtl }) => ($isRtl ? 0 : "unset")};
+  ${hideScrollBar}
 
   transform: ${({ $isOpen, $isRtl }) => {
     if ($isRtl) {
@@ -76,12 +78,9 @@ const SideNav = styled.div<ComponentProps>`
 `;
 
 const Content = styled.div<ComponentProps>`
-  width: ${({ $isOpen }) =>
-    $isOpen ? `calc(100% - ${sidebarWidth})` : "100%"};
   height: 100%;
   margin-left: ${({ $isOpen, $isRtl }) =>
     $isOpen && !$isRtl ? sidebarWidth : "unset"};
-
   margin-right: ${({ $isOpen, $isRtl }) =>
     $isOpen && $isRtl ? sidebarWidth : "unset"};
   transition: 0.5s;

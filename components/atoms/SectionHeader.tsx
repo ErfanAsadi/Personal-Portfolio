@@ -29,47 +29,47 @@ const Container = styled.div`
 `;
 
 const IconContainer = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 20px;
+  height: 20px;
 
   & > svg {
     fill: #1e282e;
   }
 
   @media ${above.Small} {
-    width: 80px;
-    height: 80px;
+    width: 30px;
+    height: 30px;
   }
 
   @media ${above.Medium} {
-    width: 100px;
-    height: 100px;
+    width: 40px;
+    height: 40px;
   }
 
   @media ${above.Large} {
-    width: 120px;
-    height: 120px;
+    width: 50px;
+    height: 50px;
   }
 `;
 
 const Title = styled.div`
   color: #1e282e;
   font-weight: bold;
-  padding: 10px 0;
+  padding: 5px 0;
   font-size: 32px;
 
   @media ${above.Small} {
     font-size: 40px;
-    padding: 14px 0;
+    padding: 8px 0;
   }
 
   @media ${above.Medium} {
     font-size: 42px;
-    padding: 16px 0;
+    padding: 9px 0;
   }
 
   @media ${above.Large} {
     font-size: 44px;
-    padding: 18px 0;
+    padding: 10px 0;
   }
 `;

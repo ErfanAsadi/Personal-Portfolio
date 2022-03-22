@@ -45,11 +45,15 @@ const Details = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+
+  @media ${above.Medium} {
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const Title = styled.div`
-  width: 100%;
   padding: 10px 20px;
   font-size: 18px;
   font-weight: bold;
@@ -60,10 +64,12 @@ const Title = styled.div`
 
 const Description = styled.div`
   width: 100%;
-  padding: 0 20px 20px 20px;
+  padding-left: 20px;
+  text-align: left;
 
   @media ${above.Medium} {
     text-align: center;
+    padding: 0;
   }
 `;
 

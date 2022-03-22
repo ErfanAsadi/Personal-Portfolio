@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { FC, ReactElement, useEffect } from "react";
 
 export interface LayoutButtonProps {
+  id: string;
   title: string;
   icon: ReactElement;
   active?: boolean;
@@ -82,7 +83,7 @@ const IconWrapper = styled.div<ComponentProps>`
   text-align: center;
 
   & > svg {
-    fill: ${({ $active }) => ($active ? "#ffffff" : "#ccc")};
+    fill: ${({ $active }) => ($active ? "#ffffff" : "#777")};
   }
 `;
 
@@ -90,5 +91,6 @@ const Title = styled.div<ComponentProps>`
   width: 100%;
   text-align: center;
   font-size: 12px;
-  color: ${({ $active }) => ($active ? "#ffffff" : "#ccc")};
+  color: ${({ $active }) => ($active ? "#ffffff" : "#777")};
+  text-transform: uppercase;
 `;

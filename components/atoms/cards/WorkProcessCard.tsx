@@ -19,10 +19,15 @@ export const WorkProcessCard: FC<WorkProcessCardProps> = (props) => {
 };
 
 const Container = styled.div`
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 0 12px 12px 12px;
+  padding: 10px;
   background-color: white;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
 `;
 
 const IconContainer = styled.div`

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import AngrySvg from "assets/icons/angry.svg";
 import { Sidebar } from "./Sidebar";
@@ -13,11 +13,18 @@ export default {
   },
 } as ComponentMeta<typeof Sidebar>;
 
-const Template: ComponentStory<typeof Sidebar> = (args) => (
-  <Container>
-    <Sidebar {...args} />
-  </Container>
-);
+const Template: ComponentStory<typeof Sidebar> = (args) => {
+  const newButtons = args.buttons.map((button) => ({
+    ...button,
+    onClick: () => setActiveButtonId(button.id),
+  }));
+  const [activeButtonId, setActiveButtonId] = useState("home");
+  return (
+    <Container>
+      <Sidebar {...args} activeButtonId={activeButtonId} buttons={newButtons} />
+    </Container>
+  );
+};
 
 export const Primary = Template.bind({});
 
@@ -25,12 +32,12 @@ Primary.args = {
   title: "Erfan Asadi",
   avatar: "/avatar.jpg",
   buttons: [
-    { icon: <AngrySvg />, title: "HOME" },
-    { icon: <AngrySvg />, title: "ABOUT ME" },
-    { icon: <AngrySvg />, title: "RESUME" },
-    { icon: <AngrySvg />, title: "PORTFOLIO" },
-    { icon: <AngrySvg />, title: "BLOG" },
-    { icon: <AngrySvg />, title: "CONTACT" },
+    { id: "home", icon: <AngrySvg />, title: "HOME" },
+    { id: "about", icon: <AngrySvg />, title: "ABOUT ME" },
+    { id: "resume", icon: <AngrySvg />, title: "RESUME" },
+    { id: "portfolio", icon: <AngrySvg />, title: "PORTFOLIO" },
+    { id: "blog", icon: <AngrySvg />, title: "BLOG" },
+    { id: "contact", icon: <AngrySvg />, title: "CONTACT" },
   ],
 };
 
