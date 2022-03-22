@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { HistoryCard, HistoryCardProps } from "./HistoryCard";
+import { HistoryCard } from "./HistoryCard";
 
 export default {
   title: "Atoms / Cards / HistoryCard",

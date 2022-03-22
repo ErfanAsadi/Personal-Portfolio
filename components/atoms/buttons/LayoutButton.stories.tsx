@@ -14,7 +14,7 @@ export default {
 } as ComponentMeta<typeof LayoutButton>;
 
 const Template: ComponentStory<typeof LayoutButton> = (args) => {
-  const [active, setActive] = useState(false);
+  const [active] = useState(false);
 
   return (
     <Container>
