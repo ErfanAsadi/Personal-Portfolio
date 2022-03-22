@@ -21,7 +21,8 @@ const Template: ComponentStory<typeof LayoutButton> = (args) => {
       <LayoutButton
         {...args}
         active={active}
-        onClick={() => setActive((prev) => !prev)}
+        href={"#about"}
+        // onClick={() => setActive((prev) => !prev)}
       />
     </Container>
   );
