@@ -17,12 +17,12 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 
 const Home: NextPage<AppPage> = (props) => {
-  // Libs
+  /** Libs */
   const { t } = useTranslation();
   const router = useRouter();
   const activeId = router.asPath.split("#")[1] ?? "home";
 
-  // Data
+  /** Data */
   const title = "Erfan Asadi";
   const sideBarProps = {
     title,
