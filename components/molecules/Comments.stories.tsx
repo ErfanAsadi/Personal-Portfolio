@@ -1,6 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Comments, CommentsProps } from "./Comments";
+import { Comments } from "./Comments";
 
 export default {
   title: "... / Comments",
