@@ -1,18 +1,18 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { ActiviesHistory } from "./ActivitiesHistory";
 import AngrySvg from "assets/icons/angry.svg";
+import ActivitiesHistory from "./ActivitiesHistory";
 
 export default {
-  title: "Molecules / ActiviesHistory",
-  component: ActiviesHistory,
+  title: "Molecules / ActivitiesHistory",
+  component: ActivitiesHistory,
   argTypes: {
     backgroundColor: { control: "color" },
   },
-} as ComponentMeta<typeof ActiviesHistory>;
+} as ComponentMeta<typeof ActivitiesHistory>;
 
-const Template: ComponentStory<typeof ActiviesHistory> = (args: any) => (
-  <ActiviesHistory {...args} />
+const Template: ComponentStory<typeof ActivitiesHistory> = (args: any) => (
+  <ActivitiesHistory {...args} />
 );
 
 export const WorkHistoryDefault = Template.bind({});
