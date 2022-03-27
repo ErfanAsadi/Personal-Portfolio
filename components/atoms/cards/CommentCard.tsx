@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import Image from "next/image";
 import { FC } from "react";
 
-interface CommentCardProps {
+export interface CommentCardProps {
   image: string;
   title: string;
   info: string;
@@ -29,8 +29,8 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
 
 const Container = styled.div`
   position: relative;
-  width: 350px;
-  height: 250px;
+  width: 100%;
+  height: 300px;
 `;
 
 const ImageContainer = styled.div`
@@ -46,8 +46,8 @@ const StyledImage = styled(Image)`
 const InnerContainer = styled.div`
   position: absolute;
   text-align: center;
-  width: 300px;
-  height: 200px;
+  width: 100%;
+  height: fit-content;
   background-color: white;
   border-radius: 8px;
   top: 50%;
@@ -59,6 +59,7 @@ const Title = styled.div`
   margin: 2px auto;
   width: fit-content;
   height: fit-content;
+  font-weight: bold;
 `;
 
 const Info = styled.div`
@@ -70,9 +71,9 @@ const Info = styled.div`
 `;
 
 const Description = styled.div`
-  width: 280px;
+  width: calc(100% - 40px);
   height: fit-content;
-  max-height: 100px;
+  max-height: 200px;
   margin: 5px auto;
   overflow: hidden;
   font-size: 12px;

@@ -38,4 +38,7 @@ const IconContainer = styled.div`
 
 const Title = styled.div`
   text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
 `;

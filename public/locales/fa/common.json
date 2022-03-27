@@ -2,10 +2,9 @@
   "home": "خانه",
   "about-me": "درباره من",
   "resume": "رزومه",
-  "portfolio": "پورتفلیو",
-  "blog": "بلاگ",
   "contact": "ارتباط با من",
-  "powered-by": "ارائه شده توسط",
-  "star-shine": "ستاره ما در حال ظهور است.",
-  "go-back": "برو  به قبل"
+  "process": "process",
+  "work-process": "work-process",
+  "clients": "clients",
+  "fun-facts": "fun-facts"
 }

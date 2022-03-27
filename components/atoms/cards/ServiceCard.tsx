@@ -41,7 +41,7 @@ const IconContainer = styled.div`
 `;
 
 const Details = styled.div`
-  width: calc(100% - 80px);
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -55,7 +55,7 @@ const Details = styled.div`
 
 const Title = styled.div`
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: bold;
   @media ${above.Medium} {
     text-align: center;
@@ -66,6 +66,8 @@ const Description = styled.div`
   width: 100%;
   padding-left: 20px;
   text-align: left;
+  font-size: 14px;
+  color: #999999;
 
   @media ${above.Medium} {
     text-align: center;

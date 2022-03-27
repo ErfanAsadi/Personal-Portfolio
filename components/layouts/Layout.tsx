@@ -87,6 +87,7 @@ const Content = styled.div<ComponentProps>`
 `;
 
 const Children = styled.div`
+  height: 100%;
   @media ${below.Large} {
     margin-top: 60px;
   }

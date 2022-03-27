@@ -9,14 +9,13 @@ import PersonSvg from "assets/icons/person.svg";
 import AngrySvg from "assets/icons/angry.svg";
 import ContactSvg from "assets/icons/contact.svg";
 import { useTranslation } from "react-i18next";
-import { WorkProcess } from "$components/molecules/WorkProcess";
-import { WorkProcessCard } from "$components/atoms/cards/WorkProcessCard";
-import Services from "$components/molecules/Services";
-import { SectionHeader } from "$components/atoms/SectionHeader";
 import { useRouter } from "next/router";
-import Image from "next/image";
+import Home from "$components/organisms/Home";
+import About from "$components/organisms/About";
+import Resume from "$components/organisms/Resume";
+import Contact from "$components/organisms/Contact";
 
-const Home: NextPage<AppPage> = (props) => {
+const HomePage: NextPage<AppPage> = (props) => {
   /** Libs */
   const { t } = useTranslation();
   const router = useRouter();
@@ -54,7 +53,6 @@ const Home: NextPage<AppPage> = (props) => {
       },
     ],
   };
-
   const serviceCardData = [
     {
       icon: <AngrySvg />,
@@ -81,6 +79,78 @@ const Home: NextPage<AppPage> = (props) => {
         "I have strong project management skills. It is a long established fact that a reader will be distracted by the readable content.",
     },
   ];
+  const workProcessItems = [
+    {
+      icon: <AngrySvg />,
+      title: "Discover",
+    },
+    {
+      icon: <AngrySvg />,
+      title: "IDEA",
+    },
+    {
+      icon: <AngrySvg />,
+      title: "DESIGN",
+    },
+    {
+      icon: <AngrySvg />,
+      title: "DEVELOP",
+    },
+    {
+      icon: <AngrySvg />,
+      title: "TEST",
+    },
+    {
+      icon: <AngrySvg />,
+      title: "LAUNCH",
+    },
+  ];
+  const activityCardStoryProps = {
+    title: "WORK HISTORY",
+    icon: <AngrySvg />,
+    histories: [
+      {
+        title: "Front-end Developer",
+        subTitle: "GOOGLE INC.",
+        description:
+          "I currently work for Pixelwars creative studio. I create usable web interfaces, front end coding stuff and almost anything. But i love what i do.",
+        date: "DEC 2013 - CURRENT",
+      },
+      {
+        title: "EXCLUSIVE AUTHOR",
+        subTitle: "ENVATO INC.",
+        description:
+          "I am an Elite Author at Envato. I create usable web interfaces, front end coding stuff and almost anything. But i love what i do.",
+        date: "2006",
+      },
+    ],
+  };
+  const codingSkillsProps = {
+    title: "CODING SKILLS",
+    items: [
+      { title: "HTML", value: 90 },
+      { title: "CSS", value: 70 },
+      { title: "JS", value: 60 },
+    ],
+  };
+  const designSkillsProps = {
+    title: "DESIGN SKILLS",
+    items: [
+      { title: "PHOTOSHOP", value: 90 },
+      { title: "ILLUSTRATOR", value: 40 },
+      { title: "INDESIGN", value: 60 },
+      { title: "XD", value: 30 },
+    ],
+  };
+  const skills = [codingSkillsProps, designSkillsProps];
+  const item = {
+    title: "Vincet Wood",
+    info: "CEO/GRAVITY INC.",
+    description:
+      "He is a great and hardworking guy. I am so proud of I have him as my assisstant. He helped me so much. Also I am proud of I have his as my assisstant. He helped me  so much.He is a great and hardworking guy. I am so proud of I have him as my assisstant. He helped me so much. Also I am proud of I have his as my assisstant",
+    image: "/avatar.jpg",
+  };
+  const commentsProps = { title: "Comments", items: [item, item] };
 
   return (
     <Layout
@@ -88,20 +158,28 @@ const Home: NextPage<AppPage> = (props) => {
       sidebar={{ activeButtonId: activeId, ...sideBarProps }}
     >
       <Container>
-        <Section id="home">
-          <FullscreenImage src="/images/fullscreen.jpg" layout="fill" />
+        <Home id="home" image="/images/fullscreen.jpg" />
+        <Section id="about" $backgroundColor="#ECF0F0">
+          <Content>
+            <About
+              services={serviceCardData}
+              workProcessItems={workProcessItems}
+            />
+          </Content>
         </Section>
-        <Section id="about">
-          <SectionHeader title="about me" icon={<PersonSvg />} />
-          <SubSectionHeader>{t("process")}</SubSectionHeader>
-          <Services services={serviceCardData} />
-          <SubSectionHeader>{t("work-process")}</SubSectionHeader>
-          <StyledWorkProcess
-            items={new Array(5).fill(WorkProcessCard)}
-            lineWidth={50}
-          />
-          <SubSectionHeader>{t("clients")}</SubSectionHeader>
-          <SubSectionHeader>{t("fun-facts")}</SubSectionHeader>
+        <Section id="resume" $backgroundColor="#EBF0DF">
+          <Content>
+            <Resume
+              activities={[activityCardStoryProps, activityCardStoryProps]}
+              skills={skills}
+              comments={commentsProps}
+            />
+          </Content>
+        </Section>
+        <Section id="contact" $backgroundColor="#EBF0DF">
+          <Content>
+            <Contact />
+          </Content>
         </Section>
       </Container>
     </Layout>
@@ -117,38 +195,23 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
 
 const Container = styled.div`
   width: 100%;
-  max-width: 1240px;
   height: 100%;
   margin: 0 auto;
-  padding: 40px;
-  text-align: center;
-  overflow: hidden;
-`;
-
-const Section = styled.div`
-  height: 100%;
-`;
-
-const FullscreenImage = styled(Image)`
-  width: 100%;
-  height: 100%;
-  background-color: red;
-`;
-
-const SubSectionHeader = styled.div`
-  width: fit-content;
-  min-width: 300px;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 50px;
-  background-color: #34a369;
-  color: white;
-  margin: 90px auto 20px auto;
-`;
-
-const StyledWorkProcess = styled(WorkProcess)`
-  margin: 40px auto;
   text-align: center;
 `;
 
-export default Home;
+interface SectionProps {
+  $backgroundColor: string;
+}
+
+const Section = styled.div<SectionProps>`
+  padding: 100px 0;
+  background-color: ${(props) => props.$backgroundColor};
+`;
+
+const Content = styled.div`
+  max-width: 1100px;
+  margin: 0 auto;
+`;
+
+export default HomePage;

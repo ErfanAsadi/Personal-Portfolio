@@ -33,7 +33,7 @@ export const Button: FC<ButtonProps> = ({
 
   if (href) {
     return (
-      <Link href={href} prefetch={!delayedPrefetch}>
+      <Link href={href} prefetch={delayedPrefetch ? false : undefined}>
         <a>{title}</a>
       </Link>
     );

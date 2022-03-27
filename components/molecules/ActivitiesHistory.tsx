@@ -2,7 +2,7 @@ import { FC, ReactElement } from "react";
 import styled from "@emotion/styled";
 import HistoryCard from "$components/atoms/cards/HistoryCard";
 
-export interface WorkHistoryProps {
+export interface ActivitiesHistoryProps {
   title: string;
   icon: ReactElement;
   histories: {
@@ -14,7 +14,7 @@ export interface WorkHistoryProps {
   className?: string;
 }
 
-export const ActiviesHistory: FC<WorkHistoryProps> = (props) => {
+export const ActivitiesHistory: FC<ActivitiesHistoryProps> = (props) => {
   const { title, icon, histories, className } = props;
   return (
     <Container className={className}>
@@ -36,7 +36,7 @@ export const ActiviesHistory: FC<WorkHistoryProps> = (props) => {
               <Text>{history.date}</Text>
             </TitleContainer>
             <br />
-            <HistoryCard
+            <StyledHistoryCard
               title={history.title}
               subTitle={history.subTitle}
               description={history.description}
@@ -50,9 +50,10 @@ export const ActiviesHistory: FC<WorkHistoryProps> = (props) => {
 };
 
 const Container = styled.div`
+  padding: 0;
+  text-align: left;
   border-left: 4px solid #fff;
   list-style: none;
-  padding: 0;
   padding-left: 18px;
 `;
 
@@ -129,6 +130,11 @@ const IconContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 10px;
+  fill: white;
 `;
 
-export default ActiviesHistory;
+const StyledHistoryCard = styled(HistoryCard)`
+  margin-left: 30px;
+`;
+
+export default ActivitiesHistory;

@@ -27,12 +27,10 @@ const sideBarProps = {
   avatar: "/avatar.jpg",
   activeButtonId: "home",
   buttons: [
-    { id: "1", icon: <AngrySvg />, title: "home" },
-    { id: "1", icon: <AngrySvg />, title: "about-me" },
-    { id: "1", icon: <AngrySvg />, title: "resume" },
-    { id: "1", icon: <AngrySvg />, title: "portfolio" },
-    { id: "1", icon: <AngrySvg />, title: "blog" },
-    { id: "1", icon: <AngrySvg />, title: "contact" },
+    { id: "home", icon: <AngrySvg />, title: "home" },
+    { id: "about", icon: <AngrySvg />, title: "about me" },
+    { id: "resume", icon: <AngrySvg />, title: "resume" },
+    { id: "contact", icon: <AngrySvg />, title: "contact" },
   ],
 };
 

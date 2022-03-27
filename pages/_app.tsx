@@ -64,6 +64,8 @@ const MyApp = (props: MyAppProps) => {
   );
 };
 
-const PageTransition = styled(motion.div)``;
+const PageTransition = styled(motion.div)`
+  height: 100%;
+`;
 
 export default appWithTranslation(MyApp);

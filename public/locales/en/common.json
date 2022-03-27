@@ -2,10 +2,9 @@
   "home": "Home",
   "about-me": "About Me",
   "resume": "Resume",
-  "portfolio": "Portfolio",
-  "blog": "Blog",
   "contact": "Contact",
-  "powered-by": "Powered By",
-  "star-shine": "The Star is going to Shine!",
-  "go-back": "Go back"
+  "process": "process",
+  "work-process": "work-process",
+  "clients": "clients",
+  "fun-facts": "fun-facts"
 }

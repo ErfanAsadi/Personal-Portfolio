@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 export interface ProgressbarProps {
   title?: string;
-  value?: number;
+  value: number;
   textColor?: string;
   backgroundColor?: string;
   lineColor?: string;

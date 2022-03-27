@@ -21,7 +21,6 @@ export const SectionHeader: FC<SectionHeaderProps> = (props) => {
 
 const Container = styled.div`
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,21 +54,19 @@ const IconContainer = styled.div`
 const Title = styled.div`
   color: #1e282e;
   font-weight: bold;
-  padding: 5px 0;
-  font-size: 32px;
+  font-size: 28px;
+  padding: 0 5px;
+  text-transform: lowercase;
 
   @media ${above.Small} {
-    font-size: 40px;
-    padding: 8px 0;
+    font-size: 36px;
   }
 
   @media ${above.Medium} {
-    font-size: 42px;
-    padding: 9px 0;
+    font-size: 38px;
   }
 
   @media ${above.Large} {
-    font-size: 44px;
-    padding: 10px 0;
+    font-size: 40px;
   }
 `;

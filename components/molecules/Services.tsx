@@ -15,7 +15,7 @@ export const Services: FC<ServicesProps> = (props) => {
   return (
     <Container className={className}>
       {services.map((service, index) => (
-        <ServiceCard {...service} key={index} />
+        <StyledServiceCard {...service} key={index} />
       ))}
     </Container>
   );
@@ -46,6 +46,10 @@ const Container = styled.div`
   @media ${above.Medium} {
     flex-direction: row;
   }
+`;
+
+const StyledServiceCard = styled(ServiceCard)`
+  margin: 0 10px;
 `;
 
 export default Services;

@@ -5,7 +5,7 @@ import {
 import styled from "@emotion/styled";
 import { FC } from "react";
 
-interface WorkProcessProps {
+export interface WorkProcessProps {
   items: WorkProcessCardProps[];
   lineWidth?: number;
   className?: string;
