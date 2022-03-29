@@ -1,6 +1,8 @@
 import { FC, ReactElement } from "react";
 import styled from "@emotion/styled";
 import HistoryCard from "$components/atoms/cards/HistoryCard";
+import { css } from "@emotion/react";
+import { useDirection } from "$utils/hooks/useDirection";
 
 export interface ActivitiesHistoryProps {
   title: string;
@@ -16,23 +18,27 @@ export interface ActivitiesHistoryProps {
 
 export const ActivitiesHistory: FC<ActivitiesHistoryProps> = (props) => {
   const { title, icon, histories, className } = props;
+
+  const direction = useDirection();
+  const isRtl = direction === "rtl";
+
   return (
-    <Container className={className}>
+    <Container $isRtl={isRtl} className={className}>
       <HeadItem>
-        <BigCircleWithIcon>
+        <BigCircleWithIcon $isRtl={isRtl}>
           <IconContainer>{icon}</IconContainer>
         </BigCircleWithIcon>
 
-        <Title>{title}</Title>
+        <Title $isRtl={isRtl}>{title}</Title>
         <br />
         <br />
       </HeadItem>
 
       {histories.map((history, index) => (
-        <Item $active={index === 0} key={index}>
+        <Item $active={index === 0} key={index} $isRtl={isRtl}>
           <Content>
             <TitleContainer>
-              <Triangle />
+              <Triangle $isRtl={isRtl} />
               <Text>{history.date}</Text>
             </TitleContainer>
             <br />
@@ -49,31 +55,60 @@ export const ActivitiesHistory: FC<ActivitiesHistoryProps> = (props) => {
   );
 };
 
-const Container = styled.div`
+interface ComponentsProps {
+  $isRtl?: boolean;
+}
+
+const Container = styled.div<ComponentsProps>`
   padding: 0;
-  text-align: left;
-  border-left: 4px solid #fff;
   list-style: none;
-  padding-left: 18px;
+  ${({ $isRtl }) =>
+    $isRtl
+      ? css`
+          text-align: right;
+          border-right: 4px solid #fff;
+          padding-right: 18px;
+        `
+      : css`
+          text-align: left;
+          border-left: 4px solid #fff;
+          padding-left: 18px;
+        `};
 `;
 
-const Title = styled.div`
+const Title = styled.div<ComponentsProps>`
   width: fit-content;
   height: 50px;
   line-height: 50px;
-  margin-left: 20px;
   font-size: 26px;
+
+  ${({ $isRtl }) =>
+    $isRtl
+      ? css`
+          margin-right: 20px;
+        `
+      : css`
+          margin-left: 20px;
+        `};
 `;
 
-const BigCircleWithIcon = styled.div`
+const BigCircleWithIcon = styled.div<ComponentsProps>`
   width: 50px;
   height: 50px;
   background: #8ecd86;
   position: absolute;
   border-radius: 50%;
   top: 0;
-  left: -20px;
-  transform: translatex(-50%);
+  ${({ $isRtl }) =>
+    $isRtl
+      ? css`
+          right: -20px;
+          transform: translatex(50%);
+        `
+      : css`
+          left: -20px;
+          transform: translatex(-50%);
+        `};
 `;
 
 const HeadItem = styled.div`
@@ -82,7 +117,13 @@ const HeadItem = styled.div`
   width: 100%;
 `;
 
-const Item = styled.div<{ $active?: boolean; $hideCircle?: boolean }>`
+interface ItemProps {
+  $active?: boolean;
+  $hideCircle?: boolean;
+  $isRtl?: boolean;
+}
+
+const Item = styled.div<ItemProps>`
   position: relative;
   margin-top: 20px;
   width: 100%;
@@ -95,8 +136,16 @@ const Item = styled.div<{ $active?: boolean; $hideCircle?: boolean }>`
     position: absolute;
     border-radius: 50%;
     top: 0;
-    left: -20px;
-    transform: translatex(-50%);
+    ${({ $isRtl }) =>
+      $isRtl
+        ? css`
+            right: -20px;
+            transform: translatex(50%);
+          `
+        : css`
+            left: -20px;
+            transform: translatex(-50%);
+          `};
   }
 `;
 
@@ -112,11 +161,19 @@ const TitleContainer = styled.div`
   display: flex;
 `;
 
-const Triangle = styled.div`
-  border-left: 10px solid #ecf0f0;
+const Triangle = styled.div<ComponentsProps>`
   border-bottom: 10px solid transparent;
   border-top: 10px solid transparent;
   background-color: #8ecd86;
+
+  ${({ $isRtl }) =>
+    $isRtl
+      ? css`
+          border-right: 10px solid #ecf0f0;
+        `
+      : css`
+          border-left: 10px solid #ecf0f0;
+        `};
 `;
 
 const Text = styled.div`
