@@ -249,7 +249,7 @@ module.exports = {
           "warn",
           {
             assertionStyle: "as",
-            objectLiteralTypeAssertions: "never",
+            objectLiteralTypeAssertions: "allow",
           },
         ],
         "spaced-comment": [
