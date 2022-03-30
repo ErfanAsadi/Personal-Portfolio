@@ -4,45 +4,45 @@ export interface ITypeWriter {
   dynamicTexts: string[];
   delay?: number;
   blinkerDelay?: number;
+  infiniteLoop?: boolean;
 }
 
-export const useTypeWriter = (args: ITypeWriter): any => {
-  const { dynamicTexts, delay = 1000, blinkerDelay = 500 } = args;
+interface UseTypeWriterOutput {
+  text: string;
+}
 
-  const [index, setIndex] = useState(0);
-  const [subIndex, setSubIndex] = useState(0);
+export const useTypeWriter = (args: ITypeWriter): UseTypeWriterOutput => {
+  const { dynamicTexts, delay = 1000, blinkerDelay = 500, infiniteLoop } = args;
+
+  /** States */
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndexInText, setCharIndexInText] = useState(0);
   const [showBlinker, setShowBlinker] = useState(true);
   const [reverse, setReverse] = useState(false);
 
-  // typeWriter
-
+  /** Effects  */
   useEffect(() => {
-    if (
-      index === dynamicTexts.length - 1 &&
-      subIndex === dynamicTexts[index].length
-    ) {
-      return;
-    }
-
-    if (
-      subIndex === dynamicTexts[index].length + 1 &&
-      index !== dynamicTexts.length - 1 &&
-      !reverse
-    ) {
+    if (charIndexInText === dynamicTexts[textIndex].length + 1 && !reverse) {
+      if (!infiniteLoop && textIndex === dynamicTexts.length - 1) {
+        return;
+      }
       setReverse(true);
       return;
     }
 
-    if (subIndex === 0 && reverse) {
+    if (charIndexInText === 0 && reverse && 1) {
+      if (!infiniteLoop && textIndex === dynamicTexts.length - 1) {
+        return;
+      }
       setReverse(false);
-      setIndex((prev) => prev + 1);
+      setTextIndex((prev) => (prev === dynamicTexts.length - 1 ? 0 : prev + 1));
       return;
     }
 
     let typeSpeed = 0;
     if (reverse) {
       typeSpeed = 75;
-    } else if (subIndex === dynamicTexts[index].length) {
+    } else if (charIndexInText === dynamicTexts[textIndex].length) {
       typeSpeed = delay;
     } else {
       typeSpeed = 150;
@@ -54,12 +54,14 @@ export const useTypeWriter = (args: ITypeWriter): any => {
     );
 
     const timeout = setTimeout(() => {
-      setSubIndex((prev) => prev + (reverse ? -1 : 1));
+      setCharIndexInText((prev) => prev + (reverse ? -1 : 1));
     }, typeSpeed);
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [subIndex, index, reverse]);
+  }, [charIndexInText, textIndex, reverse]);
 
   // blinker
   useEffect(() => {
@@ -70,9 +72,11 @@ export const useTypeWriter = (args: ITypeWriter): any => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showBlinker]);
 
-  const finalTextResult = `${dynamicTexts[index].substring(0, subIndex)}${
-    showBlinker ? "|" : " "
-  }`;
+  const finalTextResult = `${dynamicTexts[textIndex].substring(
+    0,
+    charIndexInText
+  )}${showBlinker ? "|" : " "}`;
+
   return {
     text: finalTextResult,
   };

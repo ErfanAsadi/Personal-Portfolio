@@ -13,14 +13,17 @@ export default {
 
 const Template: ComponentStory<typeof TypingText> = (args) => (
   <Container>
-    <TypingText />
+    <TypingText {...args} />
   </Container>
 );
 
 export const Primary = Template.bind({});
 
 Primary.args = {
-  title: "TypingText",
+  dynamicTexts: ["Developer.", "Programmer.", "A slave."],
+  delay: 1000,
+  blinkerDelay: 500,
+  infiniteLoop: true,
 };
 
 Primary.parameters = {

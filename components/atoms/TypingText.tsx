@@ -1,10 +1,13 @@
-import { useTypeWriter } from "$utils/hooks/useTypeWriter";
+import { ITypeWriter, useTypeWriter } from "$utils/hooks/useTypeWriter";
+import { FC } from "react";
 
-const TypingText = () => {
+const TypingText: FC<ITypeWriter> = (props) => {
+  const { dynamicTexts, delay, blinkerDelay, infiniteLoop } = props;
   const { text } = useTypeWriter({
-    dynamicTexts: ["Developer.", "Programmer.", "A slave."],
-    delay: 1000,
-    blinkerDelay: 500,
+    dynamicTexts,
+    delay,
+    blinkerDelay,
+    infiniteLoop,
   });
   return <>{text}</>;
 };
