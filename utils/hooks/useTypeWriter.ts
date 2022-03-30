@@ -30,7 +30,7 @@ export const useTypeWriter = (args: ITypeWriter): UseTypeWriterOutput => {
       return;
     }
 
-    if (charIndexInText === 0 && reverse && 1) {
+    if (charIndexInText === 0 && reverse) {
       if (!infiniteLoop && textIndex === dynamicTexts.length - 1) {
         return;
       }
