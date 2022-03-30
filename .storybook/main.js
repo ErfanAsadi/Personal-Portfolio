@@ -17,5 +17,6 @@ module.exports = {
     // the storybook's native version of fork ts checker is old so we use our own (it will be updated on storybook 7)
     check: false,
   },
+  staticDirs: ["../public"],
   webpackFinal: getStorybookWebpackConfig,
 };
