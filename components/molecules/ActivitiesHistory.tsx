@@ -1,12 +1,13 @@
-import { FC, ReactElement } from "react";
+import { FC } from "react";
 import styled from "@emotion/styled";
 import HistoryCard from "$components/atoms/cards/HistoryCard";
 import { css } from "@emotion/react";
 import { useDirection } from "$utils/hooks/useDirection";
+import Image from "next/image";
 
 export interface ActivitiesHistoryProps {
   title: string;
-  icon: ReactElement;
+  icon: string;
   histories: {
     title: string;
     subTitle: string;
@@ -26,7 +27,9 @@ export const ActivitiesHistory: FC<ActivitiesHistoryProps> = (props) => {
     <Container $isRtl={isRtl} className={className}>
       <HeadItem>
         <BigCircleWithIcon $isRtl={isRtl}>
-          <IconContainer>{icon}</IconContainer>
+          <IconContainer>
+            <Image height={"30px"} width={"30px"} src={icon} alt={icon} />
+          </IconContainer>
         </BigCircleWithIcon>
 
         <Title $isRtl={isRtl}>{title}</Title>

@@ -1,9 +1,10 @@
-import { FC, ReactElement } from "react";
+import { FC } from "react";
 import styled from "@emotion/styled";
 import { above } from "styles/viewPorts";
+import Image from "next/image";
 
 export interface ServiceCardProps {
-  icon: ReactElement;
+  icon: string;
   title: string;
   description: string;
   className?: string;
@@ -13,7 +14,9 @@ export const ServiceCard: FC<ServiceCardProps> = (props) => {
   const { icon, title, description, className } = props;
   return (
     <Container className={className}>
-      <IconContainer>{icon}</IconContainer>
+      <IconContainer>
+        <Image height={"80px"} width={"80px"} src={icon} alt={icon} />
+      </IconContainer>
       <Details>
         <Title>{title}</Title>
         <Description>{description}</Description>
