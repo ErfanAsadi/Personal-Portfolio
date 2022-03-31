@@ -198,6 +198,7 @@ const Container = styled.div`
   height: 100%;
   margin: 0 auto;
   text-align: center;
+  z-index: 0;
 `;
 
 interface SectionProps {

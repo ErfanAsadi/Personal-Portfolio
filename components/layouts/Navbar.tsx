@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { debounce } from "lodash-es";
 import React, { useState, useEffect, FC, useCallback } from "react";
-import AngrySvg from "assets/icons/angry.svg";
+import MenuSvg from "assets/icons/menu.svg";
 
 interface NavbarProps {
   title: string;
@@ -42,7 +42,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
   return (
     <Container $visible={visible} className={className}>
       <IconContainer onClick={onMenuClick}>
-        <AngrySvg />
+        <MenuSvg />
       </IconContainer>
       <Title>{title}</Title>
     </Container>
@@ -53,15 +53,16 @@ const navbarHeight = "60px";
 
 const Container = styled.div<{ $visible?: boolean }>`
   position: fixed;
+  width: 100%;
+  height: ${navbarHeight};
+  top: ${({ $visible }) => ($visible ? 0 : `-${navbarHeight}`)};
   display: flex;
   align-items: center;
-  height: ${navbarHeight};
-  width: 100%;
-  background-color: #1e282e;
   text-align: center;
-  transition: top 0.3s;
-  top: ${({ $visible }) => ($visible ? 0 : `-${navbarHeight}`)};
+  background-color: #1e282e;
   color: white;
+  transition: top 0.3s;
+  z-index: 1;
 `;
 
 const IconContainer = styled.div`

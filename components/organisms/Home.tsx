@@ -19,7 +19,8 @@ export const Home: FC<HomeProps> = (props) => {
 
 const Container = styled.div`
   width: 100%;
-  height: 100%;
+  height: calc(100% - 100px);
+  margin-top: 100px;
 `;
 
 export default Home;
