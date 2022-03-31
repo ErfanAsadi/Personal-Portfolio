@@ -23,6 +23,7 @@
     "@mui/icons-material": "^5.2.5",
     "@mui/material": "^5.2.8",
     "@sentry/nextjs": "^6.17.2",
+    "@vegadev/react-type-writer": "^1.1.0",
     "framer-motion": "^6.0.0",
     "ky": "^0.28.7",
     "ky-universal": "^0.10.0",

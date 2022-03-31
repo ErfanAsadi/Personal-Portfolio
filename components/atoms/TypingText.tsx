@@ -1,15 +1,15 @@
-import { ITypeWriter, useTypeWriter } from "$utils/hooks/useTypeWriter";
+import { ITypeWriter, useTypeWriter } from "@vegadev/react-type-writer";
 import { FC } from "react";
 
 const TypingText: FC<ITypeWriter> = (props) => {
-  const { dynamicTexts, delay, blinkerDelay, infiniteLoop } = props;
-  const { text } = useTypeWriter({
-    dynamicTexts,
+  const { text, delay, blinkerDelay, infiniteLoop } = props;
+  const message = useTypeWriter({
+    text,
     delay,
     blinkerDelay,
     infiniteLoop,
   });
-  return <>{text}</>;
+  return <>{message}</>;
 };
 
 export default TypingText;

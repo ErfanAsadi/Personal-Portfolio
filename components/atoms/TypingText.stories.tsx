@@ -20,7 +20,7 @@ const Template: ComponentStory<typeof TypingText> = (args) => (
 export const Primary = Template.bind({});
 
 Primary.args = {
-  dynamicTexts: ["Developer.", "Programmer.", "A slave."],
+  text: ["Developer.", "Programmer.", "A slave."],
   delay: 1000,
   blinkerDelay: 500,
   infiniteLoop: true,
