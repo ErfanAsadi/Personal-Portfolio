@@ -14,14 +14,14 @@ export default {
 } as ComponentMeta<typeof Sidebar>;
 
 const Template: ComponentStory<typeof Sidebar> = (args) => {
-  const newButtons = args.buttons.map((button) => ({
-    ...button,
-    onClick: () => setActiveButtonId(button.id),
-  }));
   const [activeButtonId, setActiveButtonId] = useState("home");
   return (
     <Container>
-      <Sidebar {...args} activeButtonId={activeButtonId} buttons={newButtons} />
+      <Sidebar
+        {...args}
+        activeButtonId={activeButtonId}
+        onButtonClick={(id) => setActiveButtonId(id)}
+      />
     </Container>
   );
 };
@@ -31,14 +31,6 @@ export const Primary = Template.bind({});
 Primary.args = {
   title: "Erfan Asadi",
   avatar: "/avatar.jpg",
-  buttons: [
-    { id: "home", icon: <AngrySvg />, title: "HOME" },
-    { id: "about", icon: <AngrySvg />, title: "ABOUT ME" },
-    { id: "resume", icon: <AngrySvg />, title: "RESUME" },
-    { id: "portfolio", icon: <AngrySvg />, title: "PORTFOLIO" },
-    { id: "blog", icon: <AngrySvg />, title: "BLOG" },
-    { id: "contact", icon: <AngrySvg />, title: "CONTACT" },
-  ],
 };
 
 Primary.parameters = {

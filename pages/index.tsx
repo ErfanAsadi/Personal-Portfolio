@@ -3,12 +3,7 @@ import { getPageProps } from "$utils/getPageProps";
 import { AppPage, PageName } from "$utils/sharedTypes/IApp";
 import Layout from "$components/layouts/Layout";
 import styled from "@emotion/styled";
-import HomeSvg from "assets/icons/home.svg";
-import ResumeSvg from "assets/icons/resume.svg";
-import PersonSvg from "assets/icons/person.svg";
 import AngrySvg from "assets/icons/angry.svg";
-import ContactSvg from "assets/icons/contact.svg";
-import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
 import Home from "$components/organisms/Home";
 import About from "$components/organisms/About";
@@ -17,7 +12,6 @@ import Contact from "$components/organisms/Contact";
 
 const HomePage: NextPage<AppPage> = (props) => {
   /** Libs */
-  const { t } = useTranslation();
   const router = useRouter();
   const activeId = router.asPath.split("#")[1] ?? "home";
 
@@ -26,32 +20,6 @@ const HomePage: NextPage<AppPage> = (props) => {
   const sideBarProps = {
     title,
     avatar: "/avatar.jpg",
-    buttons: [
-      {
-        id: "home",
-        icon: <HomeSvg />,
-        title: t("home"),
-        href: "#home",
-      },
-      {
-        id: "about",
-        icon: <PersonSvg />,
-        title: t("about-me"),
-        href: "#about",
-      },
-      {
-        id: "resume",
-        icon: <ResumeSvg />,
-        title: t("resume"),
-        href: "#resume",
-      },
-      {
-        id: "contact",
-        icon: <ContactSvg />,
-        title: t("contact"),
-        href: "#contact",
-      },
-    ],
   };
   const serviceCardData = [
     {

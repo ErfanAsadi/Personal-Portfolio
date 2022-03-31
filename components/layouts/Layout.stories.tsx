@@ -1,6 +1,5 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import AngrySvg from "assets/icons/angry.svg";
 import { Layout } from "./Layout";
 import styled from "@emotion/styled";
 
@@ -26,12 +25,6 @@ const sideBarProps = {
   title: "Erfan Asadi",
   avatar: "/avatar.jpg",
   activeButtonId: "home",
-  buttons: [
-    { id: "home", icon: <AngrySvg />, title: "home" },
-    { id: "about", icon: <AngrySvg />, title: "about me" },
-    { id: "resume", icon: <AngrySvg />, title: "resume" },
-    { id: "contact", icon: <AngrySvg />, title: "contact" },
-  ],
 };
 
 Primary.args = {

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { Comments } from "./Comments";
 
 export default {
-  title: "Mulecules / Comments",
+  title: "Molecules / Comments",
   component: Comments,
   argTypes: {
     backgroundColor: { control: "color" },
