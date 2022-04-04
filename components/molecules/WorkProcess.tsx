@@ -3,7 +3,7 @@ import {
   WorkProcessCardProps,
 } from "$components/atoms/cards/WorkProcessCard";
 import styled from "@emotion/styled";
-import { FC } from "react";
+import { FC, Fragment } from "react";
 
 export interface WorkProcessProps {
   items: WorkProcessCardProps[];
@@ -17,14 +17,10 @@ export const WorkProcess: FC<WorkProcessProps> = (props) => {
   return (
     <Container className={className}>
       {items.map(({ title, icon }, index) => (
-        <>
-          <StyledWorkProcessCard
-            key={`WorkProcessCard_${index}`}
-            title={title}
-            icon={icon}
-          />
+        <Fragment key={`WorkProcessCard_${index}`}>
+          <StyledWorkProcessCard title={title} icon={icon} />
           {index < items.length - 1 && <Line lineWidth={lineWidth} />}
-        </>
+        </Fragment>
       ))}
     </Container>
   );

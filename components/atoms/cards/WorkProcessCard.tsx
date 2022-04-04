@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
-import { FC, ReactElement } from "react";
+import Image from "next/image";
+import { FC } from "react";
 
 export interface WorkProcessCardProps {
-  icon: ReactElement;
+  icon: string;
   title: string;
   className?: string;
 }
@@ -12,7 +13,9 @@ export const WorkProcessCard: FC<WorkProcessCardProps> = (props) => {
 
   return (
     <Container className={className}>
-      <IconContainer>{icon}</IconContainer>
+      <IconContainer>
+        <Image height={"25px"} width={"25px"} src={icon} alt={icon} />
+      </IconContainer>
       <Title>{title}</Title>
     </Container>
   );
