@@ -1,6 +1,5 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import AngrySvg from "assets/icons/angry.svg";
 import ActivitiesHistory from "./ActivitiesHistory";
 
 export default {
@@ -36,7 +35,7 @@ const histories = [
 
 WorkHistoryDefault.args = {
   title: "WORK HISTORY",
-  icon: <AngrySvg />,
+  icon: "images/angry.png",
   histories,
 } as const;
 
