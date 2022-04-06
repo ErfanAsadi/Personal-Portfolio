@@ -12,6 +12,7 @@ export interface AppPage {
   _nextI18Next?: any;
   pageTransitionProps: any;
   deploymentConfigs: any;
+  pageData: any;
 }
 
 export enum PageName {

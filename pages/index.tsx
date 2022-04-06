@@ -3,7 +3,6 @@ import { getPageProps } from "$utils/getPageProps";
 import { AppPage, PageName } from "$utils/sharedTypes/IApp";
 import Layout from "$components/layouts/Layout";
 import styled from "@emotion/styled";
-import AngrySvg from "assets/icons/angry.svg";
 import { useRouter } from "next/router";
 import Home from "$components/organisms/Home";
 import About from "$components/organisms/About";
@@ -14,115 +13,21 @@ const HomePage: NextPage<AppPage> = (props) => {
   /** Libs */
   const router = useRouter();
   const activeId = router.asPath.split("#")[1] ?? "home";
+  const { pageData } = props;
 
   /** Data */
-  const title = "Erfan Asadi";
-  const sideBarProps = {
-    title,
-    avatar: "/avatar.jpg",
-  };
-  const serviceCardData = [
-    {
-      icon: <AngrySvg />,
-      title: "COPYWRITER",
-      description:
-        "I design super cool websites. It is a long established fact that a reader will be distracted by the readable content.",
-    },
-    {
-      icon: <AngrySvg />,
-      title: "GAME DEV",
-      description:
-        "I can design beautiful type faces for both digital and print media. It is a long established fact that a reader will be distracted.",
-    },
-    {
-      icon: <AngrySvg />,
-      title: "MANAGEMENT",
-      description:
-        "I write about web design. It is a long established fact that a reader will be distracted by the readable content.",
-    },
-    {
-      icon: <AngrySvg />,
-      title: "PROBLEM SOLVER",
-      description:
-        "I have strong project management skills. It is a long established fact that a reader will be distracted by the readable content.",
-    },
-  ];
-  const workProcessItems = [
-    {
-      icon: <AngrySvg />,
-      title: "Discover",
-    },
-    {
-      icon: <AngrySvg />,
-      title: "IDEA",
-    },
-    {
-      icon: <AngrySvg />,
-      title: "DESIGN",
-    },
-    {
-      icon: <AngrySvg />,
-      title: "DEVELOP",
-    },
-    {
-      icon: <AngrySvg />,
-      title: "TEST",
-    },
-    {
-      icon: <AngrySvg />,
-      title: "LAUNCH",
-    },
-  ];
-  const activityCardStoryProps = {
-    title: "WORK HISTORY",
-    icon: <AngrySvg />,
-    histories: [
-      {
-        title: "Front-end Developer",
-        subTitle: "GOOGLE INC.",
-        description:
-          "I currently work for Pixelwars creative studio. I create usable web interfaces, front end coding stuff and almost anything. But i love what i do.",
-        date: "DEC 2013 - CURRENT",
-      },
-      {
-        title: "EXCLUSIVE AUTHOR",
-        subTitle: "ENVATO INC.",
-        description:
-          "I am an Elite Author at Envato. I create usable web interfaces, front end coding stuff and almost anything. But i love what i do.",
-        date: "2006",
-      },
-    ],
-  };
-  const codingSkillsProps = {
-    title: "CODING SKILLS",
-    items: [
-      { title: "HTML", value: 90 },
-      { title: "CSS", value: 70 },
-      { title: "JS", value: 60 },
-    ],
-  };
-  const designSkillsProps = {
-    title: "DESIGN SKILLS",
-    items: [
-      { title: "PHOTOSHOP", value: 90 },
-      { title: "ILLUSTRATOR", value: 40 },
-      { title: "INDESIGN", value: 60 },
-      { title: "XD", value: 30 },
-    ],
-  };
-  const skills = [codingSkillsProps, designSkillsProps];
-  const item = {
-    title: "Vincet Wood",
-    info: "CEO/GRAVITY INC.",
-    description:
-      "He is a great and hardworking guy. I am so proud of I have him as my assisstant. He helped me so much. Also I am proud of I have his as my assisstant. He helped me  so much.He is a great and hardworking guy. I am so proud of I have him as my assisstant. He helped me so much. Also I am proud of I have his as my assisstant",
-    image: "/avatar.jpg",
-  };
-  const commentsProps = { title: "Comments", items: [item, item] };
+  const {
+    activities,
+    workProcessItems,
+    serviceCardData,
+    skills,
+    sideBarProps,
+    commentsProps,
+  } = pageData;
 
   return (
     <Layout
-      title={title}
+      title={sideBarProps.title}
       sidebar={{ activeButtonId: activeId, ...sideBarProps }}
     >
       <Container>
@@ -138,7 +43,7 @@ const HomePage: NextPage<AppPage> = (props) => {
         <Section id="resume" $backgroundColor="#EBF0DF">
           <Content>
             <Resume
-              activities={[activityCardStoryProps, activityCardStoryProps]}
+              activities={activities}
               skills={skills}
               comments={commentsProps}
             />

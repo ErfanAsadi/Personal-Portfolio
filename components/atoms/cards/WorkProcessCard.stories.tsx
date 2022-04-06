@@ -1,6 +1,5 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import AngrySvg from "assets/icons/angry.svg";
 
 import { WorkProcessCard } from "./WorkProcessCard";
 
@@ -19,7 +18,7 @@ const Template: ComponentStory<typeof WorkProcessCard> = (args) => (
 export const Primary = Template.bind({});
 
 Primary.args = {
-  icon: <AngrySvg />,
+  icon: "images/angry.png",
   title: "Discover",
 };
 

@@ -2,7 +2,6 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { ServiceCard } from "./ServiceCard";
 import styled from "@emotion/styled";
-import AngrySvg from "assets/icons/angry.svg";
 import { above } from "styles/viewPorts";
 
 export default {
@@ -25,7 +24,7 @@ ServiceCardDefault.args = {
   title: "Game Developer",
   description:
     "I design super cool websites. It is a long established fact that a reader will be distracted by the readable content.",
-  icon: <AngrySvg />,
+  icon: "images/angry.png",
 } as const;
 
 ServiceCardDefault.parameters = {
