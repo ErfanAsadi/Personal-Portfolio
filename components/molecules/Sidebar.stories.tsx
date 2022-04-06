@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import AngrySvg from "assets/icons/angry.svg";
 import { Sidebar } from "./Sidebar";
 import styled from "@emotion/styled";
 
