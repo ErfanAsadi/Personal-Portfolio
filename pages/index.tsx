@@ -17,6 +17,8 @@ const HomePage: NextPage<AppPage> = (props) => {
 
   /** Data */
   const {
+    firstName,
+    lastName,
     activities,
     workProcessItems,
     serviceCardData,
@@ -27,7 +29,7 @@ const HomePage: NextPage<AppPage> = (props) => {
 
   return (
     <Layout
-      title={sideBarProps.title}
+      title={`${firstName} ${lastName}`}
       sidebar={{ activeButtonId: activeId, ...sideBarProps }}
     >
       <Container>

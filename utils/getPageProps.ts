@@ -8,7 +8,7 @@ export const getPageProps = async (
   ctx: GetStaticPropsContext,
   pageName: PageName
 ): Promise<any> => {
-  const specificPageProps = getPagePropsByName(pageName, ctx);
+  const specificPageProps = await getPagePropsByName(pageName, ctx);
 
   const i18nProps = await serverSideTranslations(
     ctx.locale ?? "en",
