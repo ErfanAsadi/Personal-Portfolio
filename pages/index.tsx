@@ -8,32 +8,34 @@ import Home from "$components/organisms/Home";
 import About from "$components/organisms/About";
 import Resume from "$components/organisms/Resume";
 import Contact from "$components/organisms/Contact";
+import generateCMSImageUrl from "$utils/generateCMSImageUrl";
 
-const HomePage: NextPage<AppPage> = (props) => {
+const HomePage: NextPage<AppPage> = ({ pageData }) => {
   /** Libs */
   const router = useRouter();
   const activeId = router.asPath.split("#")[1] ?? "home";
-  const { pageData } = props;
 
   /** Data */
-  const {
-    firstName,
-    lastName,
-    activities,
-    workProcessItems,
-    serviceCardData,
-    skills,
-    sideBarProps,
-    commentsProps,
-  } = pageData;
+  const data = pageData.data.attributes;
+  const { firstName, lastName, avatar, services } = data;
+
+  console.log("services: ", data);
+
+  const title = `${firstName} ${lastName}`;
+  const sideBarProps = {
+    title,
+    avatar: generateCMSImageUrl(avatar.data[0].attributes.url),
+    activeButtonId: activeId,
+    onButtonClick: () => null,
+  };
 
   return (
-    <Layout
-      title={`${firstName} ${lastName}`}
-      sidebar={{ activeButtonId: activeId, ...sideBarProps }}
-    >
+    <Layout title={title} sidebar={sideBarProps}>
       <Container>
-        <Home id="home" image="/images/fullscreen.jpg" />
+        <Home
+          id="home"
+          image={generateCMSImageUrl(data.homeMedia.data.attributes.url)}
+        />
         <Section id="about" $backgroundColor="#ECF0F0">
           <Content>
             <About
@@ -42,7 +44,7 @@ const HomePage: NextPage<AppPage> = (props) => {
             />
           </Content>
         </Section>
-        <Section id="resume" $backgroundColor="#EBF0DF">
+        {/* <Section id="resume" $backgroundColor="#EBF0DF">
           <Content>
             <Resume
               activities={activities}
@@ -55,7 +57,7 @@ const HomePage: NextPage<AppPage> = (props) => {
           <Content>
             <Contact />
           </Content>
-        </Section>
+        </Section> */}
       </Container>
     </Layout>
   );

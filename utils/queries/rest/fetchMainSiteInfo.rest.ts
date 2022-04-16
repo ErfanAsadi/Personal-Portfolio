@@ -11,13 +11,14 @@ export const fetchMainSiteInfo = (): Promise<DeploymentInfo> => {
 };
 
 export const fetchMainSiteInfoServer = (locale = "en"): Promise<any> => {
+  const apiUrl = `${process.env.CMS_ADDRESS}/api`;
+
   const ky = getServerKy({
-    prefixUrl: process.env.CMS_ADDRESS,
+    prefixUrl: apiUrl,
     headers: {
       Authorization: `Bearer ${process.env.CMS_READ_API_TOKEN}`,
     },
   });
-
   return ky.get(`${route}&locale=${locale}`).json();
 };
 
