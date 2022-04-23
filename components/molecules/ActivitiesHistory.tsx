@@ -140,12 +140,12 @@ const Item = styled.div<ItemProps>`
     border-radius: 50%;
     top: 0;
     ${({ $isRtl }) =>
-    $isRtl
-      ? css`
+      $isRtl
+        ? css`
             right: -20px;
             transform: translatex(50%);
           `
-      : css`
+        : css`
             left: -20px;
             transform: translatex(-50%);
           `};

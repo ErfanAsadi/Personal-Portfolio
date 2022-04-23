@@ -7,7 +7,6 @@ import { useRouter } from "next/router";
 import Home from "$components/organisms/Home";
 import About from "$components/organisms/About";
 import Resume from "$components/organisms/Resume";
-import Contact from "$components/organisms/Contact";
 import generateCMSImageUrl from "$utils/generateCMSImageUrl";
 
 const HomePage: NextPage<AppPage> = ({ pageData }) => {
@@ -17,7 +16,16 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
 
   /** Data */
   const data = pageData.data.attributes;
-  const { firstName, lastName, avatar, services, workProcesses, activity, comments, skill } = data;
+  const {
+    firstName,
+    lastName,
+    avatar,
+    services,
+    workProcesses,
+    activity,
+    comments,
+    skill,
+  } = data;
 
   const title = `${firstName} ${lastName}`;
   const sideBarProps = {
@@ -40,14 +48,18 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
 
   if (activity) {
     activity.map((item: any) =>
-      item.icon.data?.attributes?.url ? item.icon = generateCMSImageUrl(item.icon.data?.attributes?.url) : item
-    )
+      item.icon.data?.attributes?.url
+        ? (item.icon = generateCMSImageUrl(item.icon.data?.attributes?.url))
+        : item
+    );
   }
 
   if (comments) {
     comments.items.map((item: any) =>
-      item.image?.data?.attributes?.url ? item.image = generateCMSImageUrl(item.image.data.attributes.url) : item
-    )
+      item.image?.data?.attributes?.url
+        ? (item.image = generateCMSImageUrl(item.image.data.attributes.url))
+        : item
+    );
   }
 
   return (
@@ -67,11 +79,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
         </Section>
         <Section id="resume" $backgroundColor="#EBF0DF">
           <Content>
-            <Resume
-              activities={activity}
-              skills={skill}
-              comments={comments}
-            />
+            <Resume activities={activity} skills={skill} comments={comments} />
           </Content>
         </Section>
         {/* <Section id="contact" $backgroundColor="#EBF0DF">
