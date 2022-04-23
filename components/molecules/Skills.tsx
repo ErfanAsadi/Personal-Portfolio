@@ -5,16 +5,16 @@ import SubSectionHeader from "$components/atoms/headers/SubSectionHeader";
 
 export interface SkillsProps {
   title: string;
-  items: ProgressbarProps[];
+  skillDetailItem: ProgressbarProps[];
   className?: string;
 }
 
 export const Skills: FC<SkillsProps> = (props) => {
-  const { title, items, className } = props;
+  const { title, skillDetailItem, className } = props;
   return (
     <Container className={className}>
       <StyledSubSectionHeader title={title} />
-      {items.map((item, index) => (
+      {skillDetailItem.map((item, index) => (
         <Progressbar {...item} key={index} lineColor="#3dc780" />
       ))}
     </Container>

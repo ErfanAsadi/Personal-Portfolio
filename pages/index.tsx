@@ -7,55 +7,86 @@ import { useRouter } from "next/router";
 import Home from "$components/organisms/Home";
 import About from "$components/organisms/About";
 import Resume from "$components/organisms/Resume";
-import Contact from "$components/organisms/Contact";
+import generateCMSImageUrl from "$utils/generateCMSImageUrl";
 
-const HomePage: NextPage<AppPage> = (props) => {
+const HomePage: NextPage<AppPage> = ({ pageData }) => {
   /** Libs */
   const router = useRouter();
   const activeId = router.asPath.split("#")[1] ?? "home";
-  const { pageData } = props;
 
   /** Data */
+  const data = pageData.data.attributes;
   const {
     firstName,
     lastName,
-    activities,
-    workProcessItems,
-    serviceCardData,
-    skills,
-    sideBarProps,
-    commentsProps,
-  } = pageData;
+    avatar,
+    services,
+    workProcesses,
+    activity,
+    comments,
+    skill,
+  } = data;
+
+  const title = `${firstName} ${lastName}`;
+  const sideBarProps = {
+    title,
+    avatar: generateCMSImageUrl(avatar.data[0].attributes.url),
+    activeButtonId: activeId,
+    onButtonClick: () => null,
+  };
+
+  const servicesData = services.map((serviceData: any) => ({
+    title: serviceData.title,
+    description: serviceData.description,
+    icon: generateCMSImageUrl(serviceData.icon.data[0].attributes.url),
+  }));
+
+  const workProcessItems = workProcesses.map((workProcessItem: any) => ({
+    title: workProcessItem.title,
+    icon: generateCMSImageUrl(workProcessItem.icon.data.attributes?.url),
+  }));
+
+  if (activity) {
+    activity.map((item: any) =>
+      item.icon.data?.attributes?.url
+        ? (item.icon = generateCMSImageUrl(item.icon.data?.attributes?.url))
+        : item
+    );
+  }
+
+  if (comments) {
+    comments.items.map((item: any) =>
+      item.image?.data?.attributes?.url
+        ? (item.image = generateCMSImageUrl(item.image.data.attributes.url))
+        : item
+    );
+  }
 
   return (
-    <Layout
-      title={`${firstName} ${lastName}`}
-      sidebar={{ activeButtonId: activeId, ...sideBarProps }}
-    >
+    <Layout title={title} sidebar={sideBarProps}>
       <Container>
-        <Home id="home" image="/images/fullscreen.jpg" />
+        <Home
+          id="home"
+          image={generateCMSImageUrl(data.homeMedia.data.attributes.url)}
+        />
         <Section id="about" $backgroundColor="#ECF0F0">
           <Content>
             <About
-              services={serviceCardData}
+              services={servicesData}
               workProcessItems={workProcessItems}
             />
           </Content>
         </Section>
         <Section id="resume" $backgroundColor="#EBF0DF">
           <Content>
-            <Resume
-              activities={activities}
-              skills={skills}
-              comments={commentsProps}
-            />
+            <Resume activities={activity} skills={skill} comments={comments} />
           </Content>
         </Section>
-        <Section id="contact" $backgroundColor="#EBF0DF">
+        {/* <Section id="contact" $backgroundColor="#EBF0DF">
           <Content>
             <Contact />
           </Content>
-        </Section>
+        </Section> */}
       </Container>
     </Layout>
   );

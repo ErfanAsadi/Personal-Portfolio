@@ -12,6 +12,9 @@ const nextEnvs = require("./configs/nextEnvs.config");
 const moduleExports = {
   reactStrictMode: true,
   i18n,
+  images: {
+    domains: [nextEnvs.CMS_ADDRESS.replace("https://", ""), "localhost"],
+  },
   env: nextEnvs,
   productionBrowserSourceMap: true,
   webpack: getNextWebpackConfig,
