@@ -13,7 +13,7 @@ const moduleExports = {
   reactStrictMode: true,
   i18n,
   images: {
-    domains: ["content.erandow.com", "localhost"],
+    domains: [nextEnvs.CMS_ADDRESS.replace("https://", ""), "localhost"],
   },
   env: nextEnvs,
   productionBrowserSourceMap: true,
