@@ -22,7 +22,7 @@ export const SkillsDefault = Template.bind({});
 const item = { title: "HTML5", value: 50 };
 SkillsDefault.args = {
   title: "Coding Skills",
-  items: [item, item],
+  skillDetailItem: [item, item],
 };
 
 SkillsDefault.parameters = {
