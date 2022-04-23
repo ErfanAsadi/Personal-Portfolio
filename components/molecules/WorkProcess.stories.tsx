@@ -22,6 +22,7 @@ const workProcessCard = {
   icon: <AngrySvg />,
   title: "Discover",
 };
+
 Primary.args = {
   items: new Array(5).fill(workProcessCard),
   lineWidth: 25,

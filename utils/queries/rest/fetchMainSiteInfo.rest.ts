@@ -1,8 +1,29 @@
 import { DeploymentInfo } from "$pages/api/getDeploymentInfo";
 import { useQuery, UseQueryResult } from "react-query";
 import { getClientKy, getServerKy } from "$lib/getKy";
+import qs from 'qs';
 
-export const route = `main-site-info?populate=*`;
+const query = qs.stringify({
+  populate: [
+    'avatar',
+    'homeMedia',
+    'services',
+    'services.icon',
+    'workProcesses',
+    'workProcesses.icon',
+    "activity",
+    "activity.icon",
+    "activity.histories",
+    "skill",
+    "skill.skillDetailItem",
+    "comments",
+    "comments.items.image"
+  ],
+}, {
+  encodeValuesOnly: true,
+});
+
+export const route = `main-site-info?${query}`;
 export const queryKey = "fetchMainSiteInfo";
 
 export const fetchMainSiteInfo = (): Promise<DeploymentInfo> => {

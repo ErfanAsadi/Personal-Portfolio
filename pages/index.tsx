@@ -17,9 +17,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
 
   /** Data */
   const data = pageData.data.attributes;
-  const { firstName, lastName, avatar, services } = data;
-
-  console.log("services: ", data);
+  const { firstName, lastName, avatar, services, workProcesses, activity, comments, skill } = data;
 
   const title = `${firstName} ${lastName}`;
   const sideBarProps = {
@@ -28,6 +26,29 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
     activeButtonId: activeId,
     onButtonClick: () => null,
   };
+
+  const servicesData = services.map((serviceData: any) => ({
+    title: serviceData.title,
+    description: serviceData.description,
+    icon: generateCMSImageUrl(serviceData.icon.data[0].attributes.url),
+  }));
+
+  const workProcessItems = workProcesses.map((workProcessItem: any) => ({
+    title: workProcessItem.title,
+    icon: generateCMSImageUrl(workProcessItem.icon.data.attributes?.url),
+  }));
+
+  if (activity) {
+    activity.map((item: any) =>
+      item.icon.data?.attributes?.url ? item.icon = generateCMSImageUrl(item.icon.data?.attributes?.url) : item
+    )
+  }
+
+  if (comments) {
+    comments.items.map((item: any) =>
+      item.image?.data?.attributes?.url ? item.image = generateCMSImageUrl(item.image.data.attributes.url) : item
+    )
+  }
 
   return (
     <Layout title={title} sidebar={sideBarProps}>
@@ -39,21 +60,21 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
         <Section id="about" $backgroundColor="#ECF0F0">
           <Content>
             <About
-              services={serviceCardData}
+              services={servicesData}
               workProcessItems={workProcessItems}
             />
           </Content>
         </Section>
-        {/* <Section id="resume" $backgroundColor="#EBF0DF">
+        <Section id="resume" $backgroundColor="#EBF0DF">
           <Content>
             <Resume
-              activities={activities}
-              skills={skills}
-              comments={commentsProps}
+              activities={activity}
+              skills={skill}
+              comments={comments}
             />
           </Content>
         </Section>
-        <Section id="contact" $backgroundColor="#EBF0DF">
+        {/* <Section id="contact" $backgroundColor="#EBF0DF">
           <Content>
             <Contact />
           </Content>
