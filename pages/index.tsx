@@ -96,6 +96,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   const props = await getPageProps(ctx, PageName.Home);
   return {
     props,
+    revalidate: 60,
   };
 };
 
