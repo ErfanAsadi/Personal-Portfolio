@@ -8,10 +8,12 @@ import Home from "$components/organisms/Home";
 import About from "$components/organisms/About";
 import Resume from "$components/organisms/Resume";
 import generateCMSImageUrl from "$utils/generateCMSImageUrl";
+import { InView } from "react-intersection-observer";
 
 const HomePage: NextPage<AppPage> = ({ pageData }) => {
   /** Libs */
   const router = useRouter();
+
   const activeId = router.asPath.split("#")[1] ?? "home";
 
   /** Data */
@@ -65,23 +67,47 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
   return (
     <Layout title={title} sidebar={sideBarProps}>
       <Container>
-        <Home
-          id="home"
-          image={generateCMSImageUrl(data.homeMedia.data.attributes.url)}
-        />
-        <Section id="about" $backgroundColor="#ECF0F0">
-          <Content>
-            <About
-              services={servicesData}
-              workProcessItems={workProcessItems}
+        <FullHeightContainer>
+          <InView
+            onChange={(inView) => {
+              if (inView) router.push("#home");
+            }}
+          >
+            <Home
+              id="home"
+              image={generateCMSImageUrl(data.homeMedia.data.attributes.url)}
             />
-          </Content>
-        </Section>
-        <Section id="resume" $backgroundColor="#EBF0DF">
-          <Content>
-            <Resume activities={activity} skills={skill} comments={comments} />
-          </Content>
-        </Section>
+          </InView>
+        </FullHeightContainer>
+        <InView
+          onChange={(inView) => {
+            if (inView) router.push("#about");
+          }}
+        >
+          <Section id="about" $backgroundColor="#ECF0F0">
+            <Content>
+              <About
+                services={servicesData}
+                workProcessItems={workProcessItems}
+              />
+            </Content>
+          </Section>
+        </InView>
+        <InView
+          onChange={(inView) => {
+            if (inView) router.push("#resume");
+          }}
+        >
+          <Section id="resume" $backgroundColor="#EBF0DF">
+            <Content>
+              <Resume
+                activities={activity}
+                skills={skill}
+                comments={comments}
+              />
+            </Content>
+          </Section>
+        </InView>
         {/* <Section id="contact" $backgroundColor="#EBF0DF">
           <Content>
             <Contact />
@@ -106,6 +132,7 @@ const Container = styled.div`
   margin: 0 auto;
   text-align: center;
   z-index: 0;
+  scroll-behavior: smooth;
 `;
 
 interface SectionProps {
@@ -120,6 +147,11 @@ const Section = styled.div<SectionProps>`
 const Content = styled.div`
   max-width: 1100px;
   margin: 0 auto;
+`;
+
+const FullHeightContainer = styled.div`
+  height: 100%;
+  width: 100%;
 `;
 
 export default HomePage;
