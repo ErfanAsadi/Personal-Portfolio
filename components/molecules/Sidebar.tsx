@@ -59,15 +59,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
 
   return (
     <Container className={className}>
-      <ImageContainer>
-        <Image
-          src={avatar}
-          alt=""
-          width="100%"
-          height="100%"
-          layout="responsive"
-        />
-      </ImageContainer>
+      <StyledImage src={avatar} alt="my-avatar" height={190} width={140} />
       {!isBelowLargeDevices && <Title>{title}</Title>}
       {buttons.map((button, index) => (
         <LayoutButton
@@ -88,6 +80,14 @@ const Container = styled.div`
   ${hideScrollBar}
 `;
 
+const StyledImage = styled(Image)`
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background-color: #f5f5f5;
+  vertical-align: middle;
+`;
+
 const Title = styled.div`
   width: 100%;
   height: 40px;
@@ -96,9 +96,4 @@ const Title = styled.div`
   text-align: center;
   color: white;
   background-color: #34a369;
-`;
-
-const ImageContainer = styled.div`
-  width: 100%;
-  height: 140px;
 `;
