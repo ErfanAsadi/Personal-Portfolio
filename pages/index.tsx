@@ -67,18 +67,16 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
   return (
     <Layout title={title} sidebar={sideBarProps}>
       <Container>
-        <FullHeightContainer>
-          <InView
-            onChange={(inView) => {
-              if (inView) router.push("#home");
-            }}
-          >
-            <Home
-              id="home"
-              image={generateCMSImageUrl(data.homeMedia.data.attributes.url)}
-            />
-          </InView>
-        </FullHeightContainer>
+        <InView
+          onChange={(inView) => {
+            if (inView) router.push("#home");
+          }}
+        >
+          <Home
+            id="home"
+            image={generateCMSImageUrl(data.homeMedia.data.attributes.url)}
+          />
+        </InView>
         <InView
           onChange={(inView) => {
             if (inView) router.push("#about");
@@ -148,11 +146,6 @@ const Section = styled.div<SectionProps>`
 const Content = styled.div`
   max-width: 1100px;
   margin: 0 auto;
-`;
-
-const FullHeightContainer = styled.div`
-  height: 100%;
-  width: 100%;
 `;
 
 export default HomePage;
