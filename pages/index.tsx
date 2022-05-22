@@ -140,6 +140,7 @@ interface SectionProps {
 }
 
 const Section = styled.div<SectionProps>`
+  height: 110vh;
   padding: 100px 0;
   background-color: ${(props) => props.$backgroundColor};
 `;
