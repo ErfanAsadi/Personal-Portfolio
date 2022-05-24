@@ -30,7 +30,7 @@ export const CommentCard: FC<CommentCardProps> = (props) => {
 const Container = styled.div`
   position: relative;
   width: 100%;
-  height: 300px;
+  min-height: 300px;
 `;
 
 const ImageContainer = styled.div`
@@ -41,6 +41,7 @@ const StyledImage = styled(Image)`
   border-radius: 50%;
   margin: 0 auto;
   margin-top: -25px;
+  object-fit: cover;
 `;
 
 const InnerContainer = styled.div`
