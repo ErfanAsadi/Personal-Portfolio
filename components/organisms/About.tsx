@@ -24,7 +24,7 @@ export const About: FC<AboutProps> = (props) => {
   return (
     <Container className={className}>
       <SectionHeader title={t("about-me")} icon={<PersonSvg />} />
-      <StyledSubSectionHeader title={t("process")} />
+      <StyledSubSectionHeader title={t("services")} />
       <Services services={services} />
       <StyledSubSectionHeader title={t("work-process")} />
       <StyledWorkProcess items={workProcessItems} lineWidth={50} />

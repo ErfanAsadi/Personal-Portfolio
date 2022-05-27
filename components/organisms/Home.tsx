@@ -20,7 +20,7 @@ export const Home: FC<HomeProps> = (props) => {
     <Container id={id} className={className}>
       <Image src={image} layout="fill" objectFit="cover" alt="homeImage" />(
       <TextContainer>
-        <Trans i18nKey="my-info">
+        <Trans i18nKey={"my-info"}>
           <Details>Hi, I am</Details>
           <Name>Erfan Asadi</Name>
         </Trans>
@@ -34,7 +34,6 @@ export const Home: FC<HomeProps> = (props) => {
 const Container = styled.div`
   position: relative;
   height: 100vh;
-  background-color: red;
   width: 100%;
 `;
 
