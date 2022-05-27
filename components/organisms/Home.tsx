@@ -33,8 +33,12 @@ export const Home: FC<HomeProps> = (props) => {
 
 const Container = styled.div`
   position: relative;
-  height: 100vh;
   width: 100%;
+  height: calc(100vh - 60px);
+
+  @media ${above.Medium} {
+    height: 100vh;
+  }
 `;
 
 const TextContainer = styled.div`
