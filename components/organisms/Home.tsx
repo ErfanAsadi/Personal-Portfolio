@@ -2,8 +2,7 @@ import { FC } from "react";
 import styled from "@emotion/styled";
 import Image from "next/image";
 import TypingText from "../atoms/TypingText";
-import { useMedia } from "$utils/hooks/useMedia";
-import { above, below } from "styles/viewPorts";
+import { above } from "styles/viewPorts";
 import { ITypeWriter } from "@vegadev/react-type-writer";
 import { Trans } from "next-i18next";
 
