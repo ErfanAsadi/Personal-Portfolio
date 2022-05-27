@@ -27,6 +27,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
     activity,
     comments,
     skill,
+    textToType,
   } = data;
 
   const title = `${firstName} ${lastName}`;
@@ -75,9 +76,11 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
         >
           <Home
             id="home"
+            textToType={textToType}
             image={generateCMSImageUrl(data.homeMedia.data.attributes.url)}
           />
         </InView>
+
         <InView
           threshold={0.1}
           onChange={(inView) => {
@@ -134,6 +137,10 @@ const Container = styled.div`
   text-align: center;
   z-index: 0;
   scroll-behavior: smooth;
+`;
+
+const HomeContainer = styled.div`
+  min-height: calc(100vh - 100px);
 `;
 
 interface SectionProps {
