@@ -139,10 +139,6 @@ const Container = styled.div`
   scroll-behavior: smooth;
 `;
 
-const HomeContainer = styled.div`
-  min-height: calc(100vh - 100px);
-`;
-
 interface SectionProps {
   $backgroundColor: string;
 }
