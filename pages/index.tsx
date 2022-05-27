@@ -69,7 +69,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
     <Layout title={title} sidebar={sideBarProps}>
       <Container>
         <InView
-          threshold={0.1}
+          threshold={0.3}
           onChange={(inView) => {
             if (inView) router.push("#home");
           }}
@@ -82,7 +82,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
         </InView>
 
         <InView
-          threshold={0.1}
+          threshold={0.3}
           onChange={(inView) => {
             if (inView) router.push("#about");
           }}
@@ -97,7 +97,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
           </Section>
         </InView>
         <InView
-          threshold={0.1}
+          threshold={0.3}
           onChange={(inView) => {
             if (inView) router.push("#resume");
           }}
