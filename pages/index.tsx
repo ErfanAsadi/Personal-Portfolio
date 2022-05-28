@@ -28,6 +28,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
     comments,
     skill,
     textToType,
+    clients,
   } = data;
 
   const title = `${firstName} ${lastName}`;
@@ -65,6 +66,15 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
     );
   }
 
+  if (clients) {
+    clients?.map((client: any) => {
+      if (client.logo.data) {
+        client.logo = generateCMSImageUrl(client.logo.data.attributes.url);
+      }
+      return client;
+    });
+  }
+
   return (
     <Layout title={title} sidebar={sideBarProps}>
       <Container>
@@ -90,6 +100,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
           <Section id="about" $backgroundColor="#ECF0F0">
             <Content>
               <About
+                clients={clients}
                 services={servicesData}
                 workProcessItems={workProcessItems}
               />

@@ -19,6 +19,8 @@ const query = qs.stringify(
       "skill.skillDetailItem",
       "comments",
       "comments.items.image",
+      "clients",
+      "clients.logo",
     ],
   },
   {
@@ -42,8 +44,6 @@ export const fetchMainSiteInfoServer = (locale = "en"): Promise<any> => {
       Authorization: `Bearer ${process.env.CMS_READ_API_TOKEN}`,
     },
   });
-  console.log("apiUrl: ", apiUrl);
-  console.log("`${route}&locale=${locale}`: ", `${route}&locale=${locale}`);
   return ky.get(`${route}&locale=${locale}`).json();
 };
 

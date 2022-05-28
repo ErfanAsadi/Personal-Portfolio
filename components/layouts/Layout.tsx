@@ -78,7 +78,8 @@ const SideNav = styled.div<ComponentProps>`
 `;
 
 const Content = styled.div<ComponentProps>`
-  min-width: 100vw;
+  min-width: ${({ $isOpen }) =>
+    $isOpen ? `calc(100% - ${sidebarWidth})` : "100%"};
   height: 100%;
   margin-left: ${({ $isOpen, $isRtl }) =>
     $isOpen && !$isRtl ? sidebarWidth : "unset"};

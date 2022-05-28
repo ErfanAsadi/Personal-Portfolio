@@ -9,15 +9,17 @@ import { useTranslation } from "react-i18next";
 import { SectionHeader } from "$components/atoms/headers/SectionHeader";
 import Services, { ServicesProps } from "$components/molecules/Services";
 import PersonSvg from "assets/icons/person.svg";
+import Clients, { ClientsProps } from "$components/molecules/Clients";
 
 export interface AboutProps {
   services: ServicesProps["services"];
   workProcessItems: WorkProcessProps["items"];
+  clients: ClientsProps["clients"];
   className?: string;
 }
 
 export const About: FC<AboutProps> = (props) => {
-  const { services, workProcessItems, className } = props;
+  const { services, workProcessItems, clients, className } = props;
 
   const { t } = useTranslation();
 
@@ -28,6 +30,8 @@ export const About: FC<AboutProps> = (props) => {
       <Services services={services} />
       <StyledSubSectionHeader title={t("work-process")} />
       <StyledWorkProcess items={workProcessItems} lineWidth={50} />
+      <StyledSubSectionHeader title={t("clients")} />
+      <Clients clients={clients} />
     </Container>
   );
 };
@@ -40,7 +44,7 @@ const StyledWorkProcess = styled(WorkProcess)`
 `;
 
 const StyledSubSectionHeader = styled(SubSectionHeader)`
-  margin: 70px auto;
+  margin: 150px auto;
   margin-bottom: 40px;
 `;
 
