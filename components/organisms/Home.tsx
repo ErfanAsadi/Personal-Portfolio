@@ -8,24 +8,32 @@ import { Trans } from "next-i18next";
 
 export interface HomeProps {
   image: string;
+  thumbnail: string;
   id: string;
   textToType: ITypeWriter["text"];
   className?: string;
 }
 
 export const Home: FC<HomeProps> = (props) => {
-  const { image, id, textToType, className } = props;
+  const { image, thumbnail, id, textToType, className } = props;
 
   return (
     <Container id={id} className={className}>
-      <Image src={image} layout="fill" objectFit="cover" alt="homeImage" />(
+      <Image
+        src={image}
+        layout="fill"
+        objectFit="cover"
+        alt="homeImage"
+        placeholder="blur"
+        blurDataURL={thumbnail}
+      />
       <TextContainer>
         <Trans i18nKey={"my-info"}>
           <Details>Hi, I am</Details>
           <Name>Erfan Asadi</Name>
         </Trans>
 
-        <StyledTypingText text={textToType} delay={200} infiniteLoop />
+        <StyledTypingText text={textToType} delay={60} infiniteLoop />
       </TextContainer>
     </Container>
   );

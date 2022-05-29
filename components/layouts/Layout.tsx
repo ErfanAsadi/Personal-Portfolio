@@ -1,6 +1,6 @@
 import { Sidebar, SidebarProps } from "$components/molecules/Sidebar";
 import styled from "@emotion/styled";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDirection } from "$utils/hooks/useDirection";
 import { below } from "styles/viewPorts";
 import { useMedia } from "$utils/hooks/useMedia";
@@ -24,14 +24,17 @@ export const Layout: FC<LayoutProps> = (props) => {
 
   /** States */
   const [openSideNav, setOpenSideNav] = useState(false);
-  const isSideNavOpen = openSideNav || !isBelowLargeDevices;
+
+  useEffect(() => {
+    setOpenSideNav(!isBelowLargeDevices);
+  }, [isBelowLargeDevices]);
 
   return (
     <Container className={className}>
-      <SideNav $isOpen={isSideNavOpen} $isRtl={isRtl}>
+      <SideNav $isOpen={openSideNav} $isRtl={isRtl}>
         <Sidebar {...sidebar} />
       </SideNav>
-      <Content $isOpen={isSideNavOpen} $isRtl={isRtl}>
+      <Content $isOpen={openSideNav} $isRtl={isRtl}>
         {isBelowLargeDevices && (
           <Navbar
             title={title}

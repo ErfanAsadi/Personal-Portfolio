@@ -42,7 +42,7 @@ export const Navbar: FC<NavbarProps> = (props) => {
   return (
     <Container $visible={visible} className={className}>
       <IconContainer onClick={onMenuClick}>
-        <MenuSvg />
+        <MenuSvg width={40} height={40} />
       </IconContainer>
       <Title>{title}</Title>
     </Container>

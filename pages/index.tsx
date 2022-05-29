@@ -28,6 +28,7 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
     comments,
     skill,
     textToType,
+    homeMedia,
     clients,
   } = data;
 
@@ -87,7 +88,10 @@ const HomePage: NextPage<AppPage> = ({ pageData }) => {
           <Home
             id="home"
             textToType={textToType}
-            image={generateCMSImageUrl(data.homeMedia.data.attributes.url)}
+            image={generateCMSImageUrl(homeMedia.data.attributes.url)}
+            thumbnail={generateCMSImageUrl(
+              homeMedia.data.attributes.formats.thumbnail.url
+            )}
           />
         </InView>
 

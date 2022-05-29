@@ -65,8 +65,8 @@ const ActivitiesContainer = styled.div`
 `;
 
 const SkillsContainer = styled.div`
-  width: calc(40%);
-  margin: 0 20px;
+  width: calc(40% - 40px);
+  padding: 0 20px;
   @media ${below.Xlarge} {
     width: 100%;
   }
