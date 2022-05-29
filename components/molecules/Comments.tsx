@@ -18,7 +18,9 @@ export const Comments: FC<CommentsProps> = (props) => {
     <Container className={className}>
       <StyledSubSectionHeader title={title} />
       {items.map((item, index) => (
-        <StyledCommentCard {...item} key={index} />
+        <CommentCardContainer key={index}>
+          <CommentCard {...item} />
+        </CommentCardContainer>
       ))}
     </Container>
   );
@@ -31,9 +33,8 @@ const Container = styled.div`
 const StyledSubSectionHeader = styled(SubSectionHeader)`
   margin: 40px auto;
 `;
-
-const StyledCommentCard = styled(CommentCard)`
-  margin: 0;
+const CommentCardContainer = styled.div`
+  margin: 40px 0;
 `;
 
 export default Comments;

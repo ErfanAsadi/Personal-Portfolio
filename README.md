@@ -3,7 +3,6 @@ This is the first project in Vegaris which was started in 2021. We want to make 
 # Bugs
 - mobile view first load
 - Work process in mobile view
-- fix comments spaces
 
 # Next Steps:
 - Add favicon and title to the pages

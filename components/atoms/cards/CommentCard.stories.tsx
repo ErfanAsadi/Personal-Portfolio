@@ -2,6 +2,7 @@ import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { CommentCard } from "./CommentCard";
+import styled from "@emotion/styled";
 
 export default {
   title: "Atoms / Cards / CommentCard",
@@ -12,7 +13,7 @@ export default {
 } as ComponentMeta<typeof CommentCard>;
 
 const Template: ComponentStory<typeof CommentCard> = (args) => (
-  <CommentCard {...args} />
+  <StyledCommentCard {...args} />
 );
 
 export const Primary = Template.bind({});
@@ -28,3 +29,7 @@ Primary.args = {
 Primary.parameters = {
   layout: "centered",
 };
+
+const StyledCommentCard = styled(CommentCard)`
+  max-width: 420px;
+`;
