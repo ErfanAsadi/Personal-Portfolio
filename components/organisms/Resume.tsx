@@ -62,6 +62,10 @@ const ActivitiesContainer = styled.div`
   @media ${below.Xlarge} {
     width: 100%;
   }
+
+  & > div {
+    margin-bottom: 120px;
+  }
 `;
 
 const SkillsContainer = styled.div`

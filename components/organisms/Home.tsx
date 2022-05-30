@@ -4,7 +4,7 @@ import Image from "next/image";
 import TypingText from "../atoms/TypingText";
 import { above } from "styles/viewPorts";
 import { ITypeWriter } from "@vegadev/react-type-writer";
-import { Trans } from "next-i18next";
+import { useTranslation, Trans } from "next-i18next";
 
 export interface HomeProps {
   image: string;
@@ -16,6 +16,8 @@ export interface HomeProps {
 
 export const Home: FC<HomeProps> = (props) => {
   const { image, thumbnail, id, textToType, className } = props;
+
+  const { t } = useTranslation();
 
   return (
     <Container id={id} className={className}>
@@ -33,7 +35,12 @@ export const Home: FC<HomeProps> = (props) => {
           <Name>Erfan Asadi</Name>
         </Trans>
 
-        <StyledTypingText text={textToType} delay={60} infiniteLoop />
+        <StyledTypingText
+          text={textToType}
+          prefix={t("typing-text-prefix")}
+          delay={60}
+          infiniteLoop
+        />
       </TextContainer>
     </Container>
   );

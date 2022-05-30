@@ -5,5 +5,7 @@
   "contact": "Contact",
   "services": "Services",
   "work-process": "Work Processes",
-  "my-info": "<2>I am</2><1>Erfan Asadi</1>"
+  "clients": "clients",
+  "my-info": "<2>I am</2><1>Erfan Asadi</1>",
+  "typing-text-prefix": "I am"
 }

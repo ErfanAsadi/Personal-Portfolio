@@ -5,5 +5,7 @@
   "contact": "ارتباط با من",
   "services": "services",
   "work-process": "work-process",
-  "my-info": "<2>من</2><1>عرفان اسدی</1>هستم"
+  "clients": "clients",
+  "my-info": "<2>من</2><1>عرفان اسدی</1>هستم",
+  "typing-text-prefix": "من"
 }

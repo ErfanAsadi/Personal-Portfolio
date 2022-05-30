@@ -29,7 +29,7 @@ const Title = styled.h3`
 `;
 const Subtitle = styled.div`
   font-size: 14px;
-  color: #c2c5c8;
+  color: #6e6e6e;
   margin-bottom: 5px;
 `;
 const Description = styled.div``;
